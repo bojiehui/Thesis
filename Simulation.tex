@@ -65,7 +65,7 @@ Two kinds of scenarios are created for the simulation - a line scenario and a gr
   \begin{center}
     \leavevmode
     %\framebox{
-      \includegraphics[scale=0.4]{/home/bo/Documents/Thesis/Final/Pics/Line_topo_4.pdf}
+      \includegraphics[scale=0.4]{/home/bo/Documents/Thesis/Final/Template/Pics/Line_topo_4.pdf}
     \caption{Line scenario}
     \label{fig:scenario_line}
   \end{center}
@@ -75,17 +75,17 @@ Two kinds of scenarios are created for the simulation - a line scenario and a gr
   \begin{center}
     \leavevmode
     %\framebox{
-      \includegraphics[scale=0.4]{/home/bo/Documents/Thesis/Final/Pics/Grid_topo_4.pdf}
+      \includegraphics[scale=0.4]{/home/bo/Documents/Thesis/Final/Template/Pics/Grid_topo_4.pdf}
     \caption{Grid scenario}
     \label{fig:scenario_grid}
   \end{center}
 \end{figure}
 
-The gain between two connected nodes is defined by the formula:
+The gain in dBm between two connected nodes is defined by the formula:
 \[
 Gain = - (50 + 20 {\log}(Distance))
 \] 
-The Packet Reception Ratio (PRR) is calculated with Signal-to-Noise Ratio (SNR), based on the measurement in \cite{RL08}:
+The Packet Reception Ratio (PRR) is estimated from Signal-to-Noise Ratio (SNR). The estimation is based on the measurement in \cite{RL08}:
 \[
 PRR = (1-0.5*erfc(\frac{\beta_1*(SNR-\beta_2)}{\sqrt{2}}))^2^3^*^2
 \quad{\beta_1} = 0.9794, {\beta_2} = 2.3851
@@ -100,7 +100,7 @@ The relationship between distance and PRR is shown in Figure \ref{fig:prr}
   \begin{center}
     \leavevmode
       \includegraphics[scale=0.45]
-      {/home/bo/Documents/Thesis/Final/Pics/prr.pdf}
+      {/home/bo/Documents/Thesis/Final/Template/Pics/prr.pdf}
    \caption{Relationship between distance and PRR}
     \label{fig:prr}
   \end{center}
