@@ -1,0 +1,133 @@
+\chapter{Simulation}
+\label{Sim}
+Network simulation is a practical way of developing and researching networks and their
+behaviour. Especially in WSNs, the main focus is not on one particular sensor node, but on
+the behaviour of the entire network (which can consist of thousands of sensor nodes). It would
+be impractical to do initial research based on real world testing and deployment, as that would cost exorbitant amounts of money, and create logistical nightmares to set up the WSN. For this reason, a valid
+simulation tool is a necessity for further studies. This chapter focuses on the simulation; it 
+includes discussion about the simulator, simulation and scenario setups and simulation procedure.
+
+\section{TinyOS Simulator - TOSSIM}
+\label{Sim:TOSSIM}
+
+The simulator used in this project is called TOSSIM\@. TOSSIM is a discrete, event-driven WSN simulator included in TinyOS. Compiling unchanged TinyOS applications
+directly into its framework, TOSSIM can simulate thousands of motes running complete
+applications \cite{LLWC}. It fulfils the requirements of being a TinyOS simulator; such requirements include: scalability, completeness and fidelity. TOSSIM is a shared library, therefore a script written with C++ or Python must be created to run the simulation.  Python is chosen in this project as it can dynamically interact with the simulation.
+\newline
+
+Configuring networks for TOSSIM simulation usually includes setting
+up both a network topology and an interference model. For the topology, a file with the format~\texttt{Source Destination Gain} may be created. TOSSIM uses Closest Pattern Match (CPM) algorithm to calculate the channel noise. It is a wireless noise simulation model
+based on statistical extraction from empirical noise data. It takes a noise trace as input to generate the interference model. This method is accepted to be much more accurate and preferable than the traditional, Independent Packet Loss (IPL) models~\cite{TOSSIM}.
+
+\section{Enabling Simulation}
+\label{Sim:Enabling}
+
+The simulation has enabled for a multi-hop network with BLIP 1.0 implemetation before. The radio stack for this simulation was CC2420. But due to considerable changes that was done in both CC2420 radio stack and BLIP, the re-enable of simulation for BLIP is required. 
+\newline
+
+As mentioned in Section \ref{Sim:radio stack}, the rfxlink radio stack unifies CC2420 and RF230. Furthermore, the TOSSIM simulation support for rfxlink has been developed by Morten Tranberg Hansen. But either BLIP 1.0 nor BLIP 2.0 has been implemented on top of rfxlink. In oder to execute simulation, the simulated rfxlink had to be moved underneath BLIP 2.0. 
+\newline
+
+The enabling of simulation took the following steps: 
+\begin{itemize}
+\item Merge into the branch to Morten Tranberg Hansen's rfxsim repository \cite{rfxsim}. 
+\newline
+
+\item Add the simulated ``chip driver'' layer - TossimDriverLayerC to the already supported CC2420 and RF230 radio chips. 
+\newline
+
+\item Introduced 802.15.4 packets into TOSSIM. TinyOS basic packets abstraction is Active Message (AM), but 6LoWPAN uses 802.15.4 packets. Introduction of 802.15.4 packets into TOSSIM is essential for the simulation to run.
+\newline
+
+\item Configure the simulation to support BLIP 2.0. Using short IEEE 802.15.4 address for Ieee154Send interface in IPDispatch. 
+\newline
+
+\item The compiler GPP is used to compile BLIP 2.0. At the meanwhile, the 6LoWPAN library is written in C. \texttt{extern ``C''} had to be added to notify the C++ compiler of the C style functions.
+\newline
+
+\item Write makefile to include 6LoWPAN object files into simulation library.
+\end{itemize}
+
+\section{Simulation Setups}
+\label{Sim:Setup}
+\subsection{Methodology}
+\label{Sim:Method}
+In the simulation, the application UDPEcho is used to evaluate the performance of RPL protocol. It sends out a data packet to a destination node and receives the echo packet from the destination. The application is installed on both simulated root node and children nodes. UDPEcho data packets will be sent out from the root node to a destination every 2 s. The root node will send out 100 packets to each of the children nodes in the scenario. 
+\newline
+
+The simulation will be done for various scenarios with different number of nodes, as well as RPL with OF0 and MRHOF respectively. The results of the simulation is visuallized with the python plotting libary Matplotlib.
+
+\subsection{Simulation Scenarios}
+\label{Sim:Scenarios}
+Two kinds of scenarios are created for the simulation - a line scenario and a grid scenario. In the line scenario the neighbouring nodes are equal distanced; in the grid scenario, the number of nodes should be a square number, and the grids are square grids. Figure \ref{fig:scenario_line} shows a 4 nodes line scenario with inter node distance being 100 m. Figure \ref{fig:scenario_grid} shows a 9 nodes grid scenario with inter node distance being 50 m. 
+
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+    %\framebox{
+      \includegraphics[scale=0.4]{/home/bo/Documents/Thesis/Final/Pics/Line_topo_4.pdf}
+    \caption{Line scenario}
+    \label{fig:scenario_line}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+    %\framebox{
+      \includegraphics[scale=0.4]{/home/bo/Documents/Thesis/Final/Pics/Grid_topo_4.pdf}
+    \caption{Grid scenario}
+    \label{fig:scenario_grid}
+  \end{center}
+\end{figure}
+
+The gain between two connected nodes is defined by the formula:
+\[
+Gain = - (50 + 20 {\log}(Distance))
+\] 
+The Packet Reception Ratio (PRR) is calculated with Signal-to-Noise Ratio (SNR), based on the measurement in \cite{RL08}:
+\[
+PRR = (1-0.5*erfc(\frac{\beta_1*(SNR-\beta_2)}{\sqrt{2}}))^2^3^*^2
+\quad{\beta_1} = 0.9794, {\beta_2} = 2.3851
+\] 
+\newline
+
+SNR is defined as $Gain(dBm) - Noise(dBm)$. The noise floor is setted to $-98$ dBm. 
+\newline
+The relationship between distance and PRR is shown in Figure \ref{fig:prr}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+      \includegraphics[scale=0.45]
+      {/home/bo/Documents/Thesis/Final/Pics/prr.pdf}
+   \caption{Relationship between distance and PRR}
+    \label{fig:prr}
+  \end{center}
+\end{figure}
+
+If two nodes are more than 165 meters apart, they will be hearing each other at a power of -94.6 dBm. Based on the formular, PRR will be equal to 0, which means if the distance between two nodes is over 165 meters, they are at least two hops apart from each other.
+
+\subsection{Simulation Metrics}
+\label{Sim:metrics}
+The metrics that are used to evaluate the RPL performance are:
+\begin{itemize}
+\item Cumulative distribution function (CDF) of time to default route detection: when a node receives the first DIO message from a lower rank node, it sets the default route entry. The sending of the DIO is controlled by Trickle timer. The CDF of default route discovery time will demonstrate the characteristics of the Trickle algorithm.
+\newline
+
+\item Control message overhead: In order to show the effect of Trickle timer, the amount of ICMP messages a node sends out during a time interval will be shown.
+\newline
+
+\item Round Trip Time (RTT) and mean RTT: RTT/mean RTT for various scenarios, both OF0 and MRHOF with link ETX (hereinafter to be shorted as MRHOF) will be evaluated.
+\newline
+
+\item Packet loss: Packet loss shows the quality of the links between nodes. A good multi-hop routing protocol should be able to forward packet properly to the destination under the certain link condition. The packet loss performances of both OF0 and MRHOF will be compared.
+\end{itemize}
+\newline
+
+
+
+
+
+
+

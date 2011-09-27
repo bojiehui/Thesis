@@ -1,0 +1,31 @@
+\chapter{Conclusion and Outlook}
+\label{Con}
+\section{Conclusion}
+\label{Con:Con}
+During this master thesis the Routing Protocol for LLNs (RPL) has been studied. The study was based on the TOSSIM simulation of BLIP 2.0 with rfxlink radio stack. 
+\newline
+
+Low power consumption and low message overhead are crucial due to the resource constrains in LLNs. RPL uses Trickle algorithm to control the generating of DIOs. In various scenarios, it efficiently reduces the control message overhead as soon as the routing topology is stabilized.  
+\newline
+
+Objective Functions (OFs) are defined for RPL to meet different optimization objectives. OF0 and MRHOF are two OFs that are implemented in BLIP 2.0. The performances are evaluated in terms of RTT and packe loss with UDPEcho application. The simulation results shows that OF0 only has good performance in very simple and low density scenarios; on the other hand, MRHOF with ETX routing metric gives a much more stable performance than OF0 in larger and more complicated topologies.  
+\newline
+
+Using MRHOF with ETX routing metric, for a 16 nodes grid scenario with inter node distance 100 m RTT is around 10 ms for the first hop, and for every additional hop, it adds approximately 10 ms to it. 
+
+\section{Outlook}
+\label{outlook}
+simulation with other scenarios can be conducted. Figure \ref{fig:container} shows a real life scenario. 
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+      \includegraphics[scale=0.45]
+      {/home/bo/Documents/Thesis/Final/Pics/container.pdf}
+   \caption{A container scenario: 32 sensor nodes and 1 border router, three types of connections depending on the position of the node: on top of the container, on top of the pallet, and in between the goods}
+    \label{fig:container}
+  \end{center}
+\end{figure} 
+
+Furthermore, many other applications can be simulated. In this thesis, the application UDPEcho shows the basic performances of RPL, but there are many other applications in BLIP 2.0 which are worth exploring, and the author
+hopes they are done so in the near future.
+

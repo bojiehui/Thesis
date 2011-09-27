@@ -1,0 +1,129 @@
+%
+% Diploma thesis of First name Last name
+%
+% Topic:
+%
+
+%\documentclass[11pt,twoside]{report}
+\documentclass[11pt,oneside]{report}
+%{{{ Packages
+\usepackage[intl]{unibcnreport}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{lgrind}
+\usepackage{booktabs}
+\usepackage[top=1in,bottom=1in,right=27mm]{geometry}
+\usepackage{listings}
+%\usepackage {url}
+\usepackage[breaklinks]{hyperref}
+%\usepackage[hyphenbreaks]{breakurl}
+\usepackage{subfig}
+\geometry{bindingoffset=1.8cm}
+
+%}}}
+%{{{ Definitions
+
+% Underline
+\newcommand{\ul}[1]{\underline{#1}}
+% Bold and sans serif
+\newcommand{\sbf}[1]{\textsf{\textbf{#1}}}
+% Raise box by half a line in tables
+\newcommand{\rb}[1]{\raisebox{1.5ex}[-1.5ex]{#1}}
+% Select language and switch off French spacing
+\newcommand{\setlang}[1]{\selectlanguage{#1}\nonfrenchspacing}
+
+% Search path
+%\graphicspath{{abb/kap_tetra/}}
+
+\pagestyle{headings}
+\makeindex
+
+%}}}
+
+%\includeonly{introduced,conditions,sourcecode,citations}
+
+\begin{document}
+
+%{{{ Title page
+
+\typ{Master Thesis}
+\title{Simulation and Evaluation of 6LoWPAN RPL Sensor Networks}
+\author{Bo, Jiehui}
+\betreuer{Dipl.-Ing. Markus Becker}
+\matnr{2279123}
+\date{14th Aug. 2011}
+\makecntitle
+
+%}}}
+%{{{ Abstract, Kurzfassung
+
+\cleardoublepage
+\include{summary_en}
+
+%}}}
+%{{{ Contents
+
+\tableofcontents
+
+%}}}
+%{{{ Chapters
+
+\include{Introduction}
+\include{GeneralConcept}
+\include{IETFStandards}
+\include{TinyOSandBlip}
+\include{Simulation}
+\include{ResultandEvaluation}
+\include{Conclusion}
+
+
+%}}}
+%{{{ Appendix
+
+\appendix
+%\include{sourcecode}
+\include{simulationresults}
+
+%}}}
+%{{{ Lists
+
+\listoffigures
+
+\cnfigures{}
+
+
+% Abkrzungsverzeichnis
+% Der Parameter ist der Name der Datei mit der Liste der Abkrzungen.
+\cnabbreviations{abbreviations}
+
+% Liste der Formelzeichen
+% Der Parameter ist der Name der Datei mit der Liste der Formelzeichen.
+%\cnsymbols{symbols}
+
+% Literaturverzeichnis
+\include{citations}
+\bibliography{misc}
+% Mit der Stiloption 'cnplain' erhlt man Nummern 
+% anstatt Namenskrzel
+\bibliographystyle{cnalphaeng}
+
+% Stichwortverzeichnis
+%\cnprintindex
+
+%}}}
+
+\end{document}
+
+%{{{ Emacs Local Variables
+
+% Local Variables: 
+% mode: latex
+% folded-file: t
+% TeX-master: t
+% TeX-command-list: (("TeX" "tex '\\nonstopmode\\input %t'" TeX-run-TeX nil t) ("TeX Interactive" "tex %t" TeX-run-interactive nil t) ("LaTeX" "%l '\\nonstopmode\\input{%t}'" TeX-run-LaTeX nil t) ("LaTeX Interactive" "%l %t" TeX-run-interactive nil t) ("LaTeX2e" "latex2e '\\nonstopmode\\input{%t}'" TeX-run-LaTeX nil t) ("View" "%v " TeX-run-background t nil) ("Print" "%p " TeX-run-command t nil) ("Queue" "%q" TeX-run-background nil nil) ("File" "dvips %d -o %f " TeX-run-command t nil) ("BibTeX" "bibtex %s" TeX-run-BibTeX nil nil) ("Index" "makeindex -s indexeng.ist %s" TeX-run-command nil t) ("Check" "lacheck %s" TeX-run-compile nil t) ("Spell" "<ignored>" TeX-run-ispell nil nil) ("Other" "" TeX-run-command t t) ("SliTeX" "slitex '\\nonstopmode\\input{%t}'" TeX-run-LaTeX nil t) ("GloTeX" "glotex %t" TeX-run-command nil nil) ("Makeinfo" "makeinfo %t" TeX-run-compile nil t) ("AmSTeX" "amstex '\\nonstopmode\\input %t'" TeX-run-TeX nil t))
+% End: 
+
+%}}}

@@ -1,0 +1,53 @@
+\chapter{Simulation Background}
+\label{Sim:2.0}
+\section{Simulation Overview}
+\label{Sim:Overview}
+
+Network simulation is widely used in developing and researching network and its behaviour. The main motivation of this mini-project is, as mentioned in chapter 1, to enable the simulation of BLIP implementation in order to further research its behaviour under different scenarios. The simulation of BLIP is shown in Figure~\ref{fig:SimBLIP}. Several sensor nodes with application UDPEcho  are inter-connected in the WSN. Those nodes are further connected to the edge router. The application IPB  aseStation is enabled on the edge router. IPBaseStation is connected to serial forwarder with the simulated serial connection. This serial forwarder is connected to IP-driver which creates a network interface. Via this interface, a external application such as ping can be connected to WSN, and realize the interaction with sensor nodes. The parts in the dash box represents the simulated parts in this mini-project. The simulator used in this mini-project is called TOSSIM. More information about this simulator is going to be presented in the next section.
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+   % \framebox{%
+      \includegraphics[scale=1]
+      {/home/bo/Documents/Miniproject/Pics/SimBLIP.pdf}%}
+    \caption{Simulation of BLIP}
+    \label{fig:SimBLIP}
+  \end{center}
+\end{figure}
+%\index{figure 1.2}
+
+\section{TinyOS Simulator - TOSSIM}
+\label{Sim:TOSSIM}
+
+TOSSIM is a discrete, event driven, mote simulator included in TinyOS. Compiling unchanged TinyOS applications directly into its framework, TOSSIM can simulate thousands of motes running complete applications.\cite{LLWC} It fulfils the requirements of being TinyOS simulator, such requirements including: scalability completeness fidelity and bridging. TOSSIM is a TinyOS library, therefore a script written with C++ or Python have to be created to run the simulation.
+\newline
+
+Configuring networks for TOSSIM simulation can be very easy, it usually includes setting up both network topology  and interference. For topology, a file with the format: {''}Source Destination Gain'' can be created. TOSSIM uses Closest Pattern Match(CPM) algorithm, which takes noise trace as input, to generate the interference model. This method is to be said much better than traditional, independent packet loss models.\cite{TOSSIM}
+
+\section{Enable Simulation}
+\label{Sim:Enable}
+The TinyOS the basic abstraction is an Active Message, but the 6LoWPAN uses 802.15.4 packets. The 
+
+\section{Simulation Process}
+\label{Sim:Process}
+To show the validation of this simulation method, example networks have to be simulated. For this reason, some multi-hop networks with simple scenarios are setting up for simulation.  
+
+\subsection{Scenario}
+\label{Sim:Process:Scenario}
+For the sake of simplicity, grid topologies are defined for the simulated networks. Each node in the WSN is equally distanced and connected with its neighbours. Figure~\ref{fig:topology} shows an example 4 by 4 network. The node in the left bottom is edge router whose ID is fec0::64 and from bottom to top, left to right node IDs are increasing, namely node fec0::1 and fec0::4 in this case are the closest nodes to edge router, while node fec0::15 being the farthest one. The typical receive power of a good link is between -10 dBm to -30 dBm. In this mini-project, it was set to be -14 dBm. The entries of noise trace is defined to be -98dBm constantly. Instead of creating a flat file for radio connectivity and noise trace manually, a piece of code is written in python to define these two scenario parameters.
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+   % \framebox{%
+      \includegraphics[scale=0.6]
+      {/home/bo/Documents/Miniproject/Pics/Topology.pdf}%}
+    \caption{4*4 Grid Topology}
+    \label{fig:topology}
+  \end{center}
+\end{figure}
+\subsection{simulation Script}
+label{Sim:Scr}
+
+\section{Result and Evaluation}
+\label{Sim:Res}
+ 

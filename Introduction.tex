@@ -1,0 +1,24 @@
+\chapter{Introduction}
+\label{1.0 Intr}
+
+The future Internet will be the Internet of Things, meaning that things from household
+applications to industrial facilities will all be accessible by the Internet. Over the last few years there has been a lot of emphasis on connecting various peripherals to the Internet. How to connect sensors with the Internet is one of them. The many constraints it has faced are small memory size, limited power,  as well as the diversity of communication protocols used in Wireless Sensor Networks (WSNs)\@, etc. Until the appearance of IETF IPv6 over Low Power Personal Area Network (6LoWPAN)\@, the successful attainment of this task was questionable. 6LoWPAN proposes to unify network protocols so that the complexity of protocol translation is eliminated. 
+\newline
+
+In 6LoWAPNs, the links between sensor nodes are lossy and support low data rate. Furthmore, such networks may potentially comprise up to thousands of nodes. These characteristics offer unique challenges to a routing solution. The IETF ROLL Working Group has defined the IPv6 Routing Protocol for Low power and lossy networks (RPL) to meet the requirements \cite{draft-ietf-roll-rpl-19}.
+\newline
+
+This paper will introduce 6LoWPAN and its characteristics, and will focus on the performance of the routing protocol in 6LoWPAN sensor networks. The reason for the thesis is in recognition that a proper simulation is a basic, yet crucial requirement of evaluating such a network. The performance thereof will be discussed based on the simulation results.
+
+\section{Motivation}
+\label{Intr:Motiv}
+
+Several implementations of 6LoWPAN have been developped over the years, such as uIPv6 \cite{uIPv6}, BLIP \cite{BLIP}, Sensinode's NanoStack \cite{Sensinode}, Jennic's 6LoWPAN \cite{Jennic} and Nivis ISA100 \cite{Nivis}. The first two are open-source protocol stacks for the embedded operating systems Contiki and TinyOS. The latter are commercial protocol stacks. In this thesis, the implementation BLIP is used. BLIP version 1.0 (BLIP 1.0) has been simulated and evaluated with simple scenarios before. Recently BLIP has just been updated to version 2.0 (BLIP 2.0)\@. In BLIP 2.0, quite a bit of changes have been made in order to support the relevant IETF standards, such as header compression for 6LoWPAN in~\cite{draft-ietf-6lowpan-hc-15}, routing protocol for 6LoWPAN in~\cite{draft-ietf-roll-rpl-19}, neighbour discovery for 6LoWPAN in \cite{draft-ietf-6lowpan-nd-15}. 
+Therefore the simulation had to be enabled for further studies of BLIP 2.0. 
+\newline
+
+In BLIP 2.0, a new routing protocol - Routing Protocol for Low power and lossy networks (RPL) replaces the Hybrid Routing Protocol for Lossy and Low Power Networks (HYDRO) as the routing protocol. The performance of RPL observed in simulation will be evaluated in this thesis.
+\section{Outline}
+\label{Intr:Outline}
+
+Chapter 2 gives the general concept of WSNs. An introduction to 6LoWPAN along with its uses and implementations can be found therein. Chapter 3 presents the relavant IETF standards for 6LoWPAN. Chapter 4 discusses BLIP - the implementation of 6LoWPAN. Chapter 5 focuses on the simulation itself,  including the simulator, simulation setup and procedure. Chapter 6 gives the simulation results, evaluation and problems presented. The final chapter concludes the work, and gives the outlook for future research.
