@@ -1,6 +1,6 @@
 \chapter{IETF Standards}
 \label{IETF}
-The constraints presented in Section~\ref{General:WSN} and the difficulities combining IPv6 with WSN are significant. To realize it, the various working group of IETF have proposed a series of standards in order to solve the problems.
+The constraints presented in Section~\ref{General:WSN} and the difficulties combining IPv6 with WSN are significant. To realize it, the various working group of IETF have proposed a series of standards in order to solve the problems.
 
 \section{Adaptation Layer: 6LoWPAN}
 \label{Intr:6LoWPAN}
@@ -83,7 +83,7 @@ When using the routing mechanism~\texttt{mesh-under} (in contrast to~\texttt{rou
 
 \section{Routing Protocol for Low power and Lossy Networks}
 \label{RPL}
-IPv6 Routing Protocol for Low power and lossy networks (RPL) as a mesh routing protocol was described by IETF in~\cite{draft-ietf-roll-rpl-19}. RPL is designed to meet the requirements such as: routing requirements for urban (\cite{RFC 5548})\@, industrial (\cite{RFC 5673})\@, home automation (\cite{RFC 5826}) and building automation (\cite{RFC 5867}) usages\@. In RPL the routing objectives, such as minimizing energy, minimize latency, etc., are seperately defined in Objective Functions (OFs)\@. It makes RPL flexible to a wider range of Low power and Lossy Networks (LLNs)\@.
+IPv6 Routing Protocol for Low power and lossy networks (RPL) as a mesh routing protocol was described by IETF in~\cite{draft-ietf-roll-rpl-19}. RPL is designed to meet the requirements such as: routing requirements for urban (\cite{RFC 5548})\@, industrial (\cite{RFC 5673})\@, home automation (\cite{RFC 5826}) and building automation (\cite{RFC 5867}) usages\@. In RPL the routing objectives, such as minimizing energy, minimize latency, etc., are separately defined in Objective Functions (OFs)\@. It makes RPL flexible to a wider range of Low power and Lossy Networks (LLNs)\@.
 
 \subsection{Topology}
 \label{RPL:Topology}
@@ -101,7 +101,7 @@ IPv6 Routing Protocol for Low power and lossy networks (RPL) as a mesh routing p
 The most basic routing topology RPL forms and maintains is a Destination Oriented Directed Acyclic Graph (DODAG)\@. Figure~\ref{fig:DODAG} shows how a DODAG would look like: it consists of only one root node and has no loop back cycles. There are two directions defined - up which indicates the path towards the root; down which indicates the path away from the root. In a DODAG, a parent of a node is one of the immediate successors of the node on a path towards the DODAG root. 
 \newline
 
-Four types of indentifier are used in RPL:
+Four types of identifier are used in RPL:
 \begin{itemize}
 \item RPLInstanceID: ID of a set of one or more DODAGs with the same OF called an RPL instance.
 \newline
@@ -157,7 +157,7 @@ The triple of RPLInstanceID, DODAGID and RPLVersionNumber uniquely identifies a 
 As the DODAG has two directions - up and down, there are two kinds of routes defined in RPL: upward routes and downward routes. Upward routes are the routes from a child node to a root node. Similarly, downward routes are the routes which are away from the root to a child node. To maintain these routes, 5 new types of ICMPv6 control messages are used:
 
 \begin{itemize}
-\item DODAG Information Solicitation (DIS): DIS is used by a non-root node to request some DODAG information from the neighbouring nodes. The neighbours response to a DIS with a DODAG Information Object (DIO) which is the second type of ICMPv6 message used in RPL.
+\item DODAG Information Solicitation (DIS): DIS is used by a non-root node to request some DODAG information from the neighboring nodes. The neighbors response to a DIS with a DODAG Information Object (DIO) which is the second type of ICMPv6 message used in RPL.
 \newline
 
 \item DODAG Information Object (DIO): Information such as node rank, RPL instance ID, DODAG version number are communicated between nodes within DIO messages. It allows the recipient to join a DODAG and choose its parent set and preferable parent according to the OF, metrics and constraints which are carried in the metric container option. The sending of DIO can be triggered by both a Trickle timer or in receiving a DIS.
@@ -173,7 +173,7 @@ As the DODAG has two directions - up and down, there are two kinds of routes def
 \end{itemize}
 \newline
 
-Figure~\ref{fig:DIS/DIO/DAO} shows basic DIS-DIO and DAO message exchanges. In Figure~\ref{fig:seqence_shot_DIO}, a RPL node sends a DIS to its neighbor and the neighbor will reply with a DAO message. In Figure~\ref{fig:seqence_shot_DAO}, a child sends a DAO message upwards to its parent, and the parent forwards the message to its parent until it reaches the root. 
+Figure~\ref{fig:DIS/DIO/DAO} shows basic DIS-DIO and DAO message exchanges. In Figure~\ref{fig:seqence_shot_DIO}, a RPL node sends a DIS to its neighbor and the neighbor will reply with a DAO message. In Figure~\ref{fig:seqence_shot_DAO}, a child sends a DAO message upwards to its parent, and the parent forwards the message to its parent until it reaches the DADAG root.  
 
 \begin{figure}[htbp]
   \begin{center}
@@ -191,7 +191,7 @@ Figure~\ref{fig:DIS/DIO/DAO} shows basic DIS-DIO and DAO message exchanges. In F
 
 \subsection{RPL Objective Function}
 \label{RPL:OF}
-The nodes running RPL might use a number of metrics to describe a link or a node and make it available for route selection. These metrics are advertised in DIO messages using a Metric Container suboption. An objective function can use these metrics to calculate rank, choose parents and therefore choose routes \cite{MRHOF}. The actual algorithm is implementation-dependent.
+The nodes running RPL might use a number of metrics to describe a link or a node and make it available for route selection. These metrics are advertised in DIO messages using a Metric Container sub-option. An objective function can use these metrics to calculate rank, choose parents and therefore choose routes \cite{MRHOF}. The actual algorithm is implementation-dependent.
 
 \subsubsection{Objective Function Zero}
 \label{RPL:OF0}
@@ -209,17 +209,17 @@ The path cost in MRHOF is defined as the quantitated property of an end-to-end p
 In Section~\ref{RPL:ICMP}, the Trickle timer is mentioned as the control timer for sending DIOs. A Trickle timer uses the Trickle algorithm (\cite{RFC 6206}) to control sending messages which carries information such as routing state, network configuration, etc. The general idea of the Trickle algorithm is: if a node receives a Trickle message and finds out the information, for example, a certain version number, in the message is different from its own and an inconsistency is detected, the Trickle timer will be reset; if the information agrees and no inconsistency detected, then the Trickle algorithm will slow down the transmission of the Trickle message. The definition for consistency is protocol-dependent. With the Trickle algorithm, on one hand, a node can detect the inconsistency efficiently. On the other hand, when there is no inconsistency, Trickle messages are sent less frequently. It does not only save energy in sensor nodes, but also reduce the traffic load in the network which leads to a low channel occupation. 
 \newline
 
-The Trickle algorithm defines a Trickle interval with a minimum interval size Imin and a maximum interval size Imax. Additionally, the algorithm uses a redundancy constant k.
+The Trickle algorithm defines a Trickle interval with a minimum time interval size Imin and a maximum time interval size Imax. Additionally, the algorithm uses a redundancy constant k.
 
 Besides the three parameters above, Trickle maintains three variables:
  \begin{itemize}
  \item I, the current interval size
  \newline
  
- \item t, a time in range of [$\frac{I}{2}, I$]
+ \item t, a timer valued in range of [$\frac{I}{2}, I$]
  \newline
  
- \item c, a counter.
+ \item c, a counter
 \newline
 \end{itemize}
 
@@ -228,13 +228,13 @@ The Trickle algorithm works in the following way \cite{RFC 6206}:
 \item First the algorithm begins the first time interval (I) with a size chosen in the range of [Imin, Imax].
 \newline
 
-\item Then the Trickle sets time period t to a random point in the interval, taken from the range [$\frac{I}{2}, I$).  
+\item Then the Trickle sets timer period t to a random point in the interval, taken from the range $[\frac{I}{2}, I)$.  
 \newline
  
-\item When the time t expires, Trickle doubles I (up to Imax), and picks a new I from range [$\frac{I}{2}, I$].  Trickle transmits if and only if the counter c is less than the redundancy constant k.
+\item When the time t expires, Trickle doubles I (up to Imax), and picks a new I from range $[\frac{I}{2}, I]$.  Trickle transmits if and only if the counter c is less than the redundancy constant k.
 \newline
 
-\item If Trickle hears message with a consistent data, it increases the counter c.
+\item If Trickle hears message with a consistent information, it increases the counter c.
 \newline
 
 \item If it hears an inconsistency, it resets C to 0, I to Imin and start the first step again.

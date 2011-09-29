@@ -5,13 +5,11 @@
 During this master thesis the Routing Protocol for LLNs (RPL) has been studied. The study was based on the TOSSIM simulation of BLIP 2.0 with rfxlink radio stack. 
 \newline
 
-Low power consumption and low message overhead are crucial due to the resource constrains in LLNs. RPL uses Trickle algorithm to control the generating of DIOs. In various scenarios, it efficiently reduces the control message overhead as soon as the routing topology is stabilized.  
+Low power consumption and low message overhead are crucial due to the resource constrains in LLNs. In RPL, the node which is closer to the root tend to have more control message traffic than the further ones. Furthermore, RPL uses Trickle algorithm to control the generating of DIOs. In various scenarios, it efficiently reduces the control message overhead as soon as the routing topology is stabilized.   
 \newline
 
-Objective Functions (OFs) are defined for RPL to meet different optimization objectives. OF0 and MRHOF are two OFs that are implemented in BLIP 2.0. The performances are evaluated in terms of RTT and packe loss with UDPEcho application. The simulation results shows that OF0 only has good performance in very simple and low density scenarios; on the other hand, MRHOF with ETX routing metric gives a much more stable performance than OF0 in larger and more complicated topologies.  
+Objective Functions (OFs) are defined for RPL to meet different optimization objectives. OF0 and MRHOF are two OFs that are implemented in BLIP 2.0. The performances are evaluated in terms of RTT and packet loss with the application \texttt{UDPEcho}\@. The simulation results shows that OF0 only has good performance in simple and low density scenarios. For more dense scenarios, OF0 has unstable performances due to it chooses route without any objective guarantee. On the other hand, MRHOF with ETX routing metric has less packet loss and lower RTT than OF0 in larger and more complicated topologies, also the performance of MRHOF with ETX is more stable.  
 \newline
-
-Using MRHOF with ETX routing metric, for a 16 nodes grid scenario with inter node distance 100 m RTT is around 10 ms for the first hop, and for every additional hop, it adds approximately 10 ms to it. 
 
 \section{Outlook}
 \label{outlook}
