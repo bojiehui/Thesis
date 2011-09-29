@@ -13,9 +13,9 @@ Instead of the traditional IP based model, a 6LoWPAN protocol stack adds the 6Lo
   \begin{center}
     \leavevmode
     \subfloat[Typical 6LoWPAN Node]{\label{fig:node stack}
-      \includegraphics[scale=0.8]{/home/bo/Documents/Thesis/Final/Template/Pics/Protocol.pdf}}
+      \includegraphics[scale=0.8]{Pics/Protocol.pdf}}
     \subfloat[6LBR]{\label{fig:6LBR stack}
-       \includegraphics[scale=0.8]{/home/bo/Documents/Thesis/Final/Template/Pics/6LBR.pdf}}
+       \includegraphics[scale=0.8]{Pics/6LBR.pdf}}
     \caption{Protocol stack of 6LoWPAN nodes}
     \label{fig:protocol stack}
   \end{center}
@@ -33,8 +33,7 @@ In the adaptation layer, IPv6 header compression and data fragmentation will be 
   \begin{center}
     \leavevmode
     %\framebox{
-     \includegraphics[scale=1]
-      {/home/bo/Documents/Thesis/Final/Template/Pics/Frame.pdf}%}
+     \includegraphics[scale=1]{Pics/Frame.pdf}%}
     \caption{The basic 6LoWPAN frame structure}
     \label{fig:Frame}
   \end{center}
@@ -54,9 +53,9 @@ header which contains information of the 6LoWPAN network. That is precisely the 
     \leavevmode
     %\framebox{
     \subfloat[First Fragment]{\label{fig:Fragmentation_1}
-      \includegraphics[scale=0.8]{/home/bo/Documents/Thesis/Final/Template/Pics/Fragmentation_1.pdf}}\\
+      \includegraphics[scale=0.8]{Pics/Fragmentation_1.pdf}}\\
     \subfloat[Subsequent Fragment]{\label{fig:Fragmentation_2}
-       \includegraphics[scale=0.8]{/home/bo/Documents/Thesis/Final/Template/Pics/Fragmentation_2.pdf}}
+       \includegraphics[scale=0.8]{Pics/Fragmentation_2.pdf}}
     \caption{Fragmentation header of 6LoWPAN}
     \label{fig:Fragmentation}
   \end{center}
@@ -73,8 +72,7 @@ When using the routing mechanism~\texttt{mesh-under} (in contrast to~\texttt{rou
   \begin{center}
     \leavevmode
     %\framebox{
-      \includegraphics[scale=0.8]
-      {/home/bo/Documents/Thesis/Final/Template/Pics/Mesh.pdf}%}
+      \includegraphics[scale=0.8]{Pics/Mesh.pdf}%}
     \caption{Mesh addressing header of 6LoWPAN}
     \label{fig:Mesh}
   \end{center}
@@ -91,8 +89,7 @@ IPv6 Routing Protocol for Low power and lossy networks (RPL) as a mesh routing p
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
-      \includegraphics[scale=0.4]
-      {/home/bo/Documents/Thesis/Final/Template/Pics/DODAG.pdf}
+      \includegraphics[scale=0.4]{Pics/DODAG.pdf}
     \caption{DODAG}
     \label{fig:DODAG}
   \end{center}
@@ -118,8 +115,7 @@ Four types of identifier are used in RPL:
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
-      \includegraphics[scale=0.3]
-      {/home/bo/Documents/Thesis/Final/Template/Pics/DODAGVersion.pdf}
+      \includegraphics[scale=0.3]{Pics/DODAGVersion.pdf}
     \caption{Node 2 decides to choose node 1 as its parent instead of root which causes a DODAG reconstruction, thus the DODAG version change.}
     \label{fig:DODAGVersion}
   \end{center}
@@ -129,8 +125,7 @@ Four types of identifier are used in RPL:
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
-      \includegraphics[scale=0.35]
-      {/home/bo/Documents/Thesis/Final/Template/Pics/Rank.pdf}
+      \includegraphics[scale=0.35]{Pics/Rank.pdf}
     \caption{Node 3 has a bigger rank than node 1 and 2, meaning that node 3 is further from the root node than node 1 and 2.}
     \label{fig:Rank}
   \end{center}
@@ -143,8 +138,7 @@ The triple of RPLInstanceID, DODAGID and RPLVersionNumber uniquely identifies a 
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
-      \includegraphics[scale=0.25]
-      {/home/bo/Documents/Thesis/Final/Template/Pics/InstanceID.pdf}
+      \includegraphics[scale=0.25]{Pics/InstanceID.pdf}
     \caption{A single RPL instance L includes two DODAGs with DODAGID M and N}
     \label{fig:InstanceID}
   \end{center}
@@ -171,7 +165,7 @@ As the DODAG has two directions - up and down, there are two kinds of routes def
 
 \item Consistency Check (CC): This message protects against replay attacks and synchronize counters. It is related to the secured RPL transmission.
 \end{itemize}
-\newline
+%\newline
 
 Figure~\ref{fig:DIS/DIO/DAO} shows basic DIS-DIO and DAO message exchanges. In Figure~\ref{fig:seqence_shot_DIO}, a RPL node sends a DIS to its neighbor and the neighbor will reply with a DAO message. In Figure~\ref{fig:seqence_shot_DAO}, a child sends a DAO message upwards to its parent, and the parent forwards the message to its parent until it reaches the DADAG root.  
 
@@ -180,9 +174,9 @@ Figure~\ref{fig:DIS/DIO/DAO} shows basic DIS-DIO and DAO message exchanges. In F
     \leavevmode
     %\framebox{
     \subfloat[DIS-DIO]{\label{fig:seqence_shot_DIO}
-      \includegraphics[scale=0.3]{/home/bo/Documents/Thesis/Final/Template/Pics/DIS_DIO.pdf}}\\
+      \includegraphics[scale=0.3]{Pics/DIS_DIO.pdf}}\\
     \subfloat[DAO]{\label{fig:seqence_shot_DAO}
-       \includegraphics[scale=0.3]{/home/bo/Documents/Thesis/Final/Template/Pics/DAO.pdf}}
+       \includegraphics[scale=0.3]{Pics/DAO.pdf}}
     \caption{Basic DIS, DIO and DAO communication}
     \label{fig:DIS/DIO/DAO}
   \end{center}
