@@ -203,9 +203,9 @@ The path cost in MRHOF is defined as the quantitated property of an end-to-end p
 In Section~\ref{RPL:ICMP}, the Trickle timer is mentioned as the control timer for sending DIOs. A Trickle timer uses the Trickle algorithm (\cite{RFC 6206}) to control sending messages which carries information such as routing state, network configuration, etc. The general idea of the Trickle algorithm is: if a node receives a Trickle message and finds out the information, for example, a certain version number, in the message is different from its own and an inconsistency is detected, the Trickle timer will be reset; if the information agrees and no inconsistency detected, then the Trickle algorithm will slow down the transmission of the Trickle message. The definition for consistency is protocol-dependent. With the Trickle algorithm, on one hand, a node can detect the inconsistency efficiently. On the other hand, when there is no inconsistency, Trickle messages are sent less frequently. It does not only save energy in sensor nodes, but also reduce the traffic load in the network which leads to a low channel occupation. 
 \newline
 
-The Trickle algorithm defines a Trickle interval with a minimum time interval size $Imin$ and a maximum time interval size $Imax$. Additionally, the algorithm uses a redundancy constant $k$. Besides the three parameters above, Trickle maintains three variables:
+The Trickle algorithm defines a Trickle interval with a minimum time interval size $Imin$ and a maximum time interval size $Imax$. Additionally, the algorithm uses a positive redundancy constant $k$. Besides the three parameters above, Trickle maintains three variables:
 \begin{itemize}
- \item $I$, the current interval size
+ \item $I$, the current interval size within the range of $[Imin, Imax]$
  \newline
  
  \item $t$, a timer valued in range of [$\frac{I}{2}, I$]
@@ -218,18 +218,18 @@ The Trickle algorithm works in the following way \cite{RFC 6206}:
 \begin{itemize}
 \item For sending:
   \begin{itemize}
-  \item First the algorithm begins the first time interval $I$ with a size chosen in the range of $[Imin, Imax]$.
+  \item First the algorithm begins the time interval $I$, and sets counter $c$ to 0, the timer period $t$ to a random point in the range of $[\frac{I}{2}, I)$.
   
-  \item Then the Trickle sets timer period $t$ to a random point in the interval $I$, taken from the range $[\frac{I}{2}, I)$.
+  \item At time $t$, Trickle transmits if and only if the counter $c$ is less than the redundancy constant $k$.
   
-   \item When the time t expires, Trickle doubles $I$ (up to $Imax$), and picks a new $I$ from range $[\frac{I}{2}, I)$.  Trickle transmits if and only if the counter $c$ is less than the redundancy constant $k$.
+  \item When the interval $I$ expires, Trickle doubles $I$ size(up to $Imax$), and picks a new $t$ from range $[\frac{I}{2}, I)$. 
   \end{itemize}  
   
 \item For receiving:
  \begin{itemize}
- \item If Trickle hears message with a consistent information, it increases the counter $c$.
+ \item If Trickle hears a message with a consistent information, it increases the counter $c$.
  
- \item If it hears an inconsistency, it resets Trickle timer to the intial state.
+ \item If it hears an inconsistency, it resets its Trickle timer to $I=Imin$.
  \end{itemize}
 \end{itemize}
 
