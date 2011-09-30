@@ -12,101 +12,106 @@ In the simulation a packet is considered to be lost when the echo packet is not 
 \label{pl:line}
 Figure \ref{fig:pl_4_line_of0} and \ref{fig:pl_4_line_mrhof} show the mean packet loss rate for an OFO and MRHOF 4 nodes line scenario for inter-node distance of 10, 50 or 100 meters. Figure \ref{fig:pl_9_line_of0} to Figure \ref{fig:pl_16_line_mrhof} are the same except they show 6 and 9 nodes line scenarios.
 
-\begin{figure}[htbp]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% line 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[p]
   \centering
     \leavevmode
-    \subfloat[10 m]{\label{fig:4/OF0/line/dist10_montecarlo_contour_packetloss}
-    \hspace{-25pt}
-      \includegraphics[scale=0.23]{Pics/results/4/OF0/line/dist10_montecarlo_contour_packetloss.pdf}}
-     \subfloat[50 m]{\label{fig:4/OF0/line/dist50_montecarlo_contour_packetloss} 
-     \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/4/OF0/line/dist50_montecarlo_contour_packetloss.pdf}} 
-     \subfloat[100 m]{\label{fig:4/OF0/line/dist100_montecarlo_contour_packetloss}
-      \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/4/OF0/line/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean Packet loss: 4 nodes line with OF0}
- \label{fig:pl_4_line_of0}
+    \subfloat[OF0]{\label{fig:4/OF0/line/dist10_montecarlo_contour_packetloss}
+      \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/line/dist10_montecarlo_contour_packetloss.pdf}}
+    \subfloat[MRHOF]{\label{fig:4/MRHOF/line/dist10_montecarlo_contour_packetloss}
+      \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/line/dist10_montecarlo_contour_packetloss.pdf}}
+   \caption{Mean packet loss: 4 node line scenario with 10 m inter node distance}
+   \label{fig:pl_4_line_10}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
     \leavevmode
-    \subfloat[10 m]{\label{fig:4/MRHOF/line/dist10_montecarlo_contour_packetloss}
-    \hspace{-25pt}
-      \includegraphics[scale=0.23]{Pics/results/4/MRHOF/line/dist10_montecarlo_contour_packetloss.pdf}}
-     \subfloat[50 m]{\label{fig:4/MRHOF/line/dist50_montecarlo_contour_packetloss} 
-     \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/4/MRHOF/line/dist50_montecarlo_contour_packetloss.pdf}} 
-     \subfloat[100 m]{\label{fig:4/MRHOF/line/dist100_montecarlo_contour_packetloss}
-      \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/4/MRHOF/line/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean Packet loss: 4 nodes line with MRHOF}
- \label{fig:pl_4_line_mrhof}
-\end{figure}
-      
-\begin{figure}[htbp]
-  \centering
-    \leavevmode
-    \subfloat[10 m]{\label{fig:9/OF0/line/dist10_montecarlo_contour_packetloss}
-    \hspace{-25pt}
-      \includegraphics[scale=0.23]{Pics/results/9/OF0/line/dist10_montecarlo_contour_packetloss.pdf}}
-     \subfloat[50 m]{\label{fig:9/OF0/line/dist50_montecarlo_contour_packetloss} 
-     \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/9/OF0/line/dist50_montecarlo_contour_packetloss.pdf}} 
-     \subfloat[100 m]{\label{fig:4/OF0/line/dist100_montecarlo_contour_packetloss}
-      \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/9/OF0/line/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean Packet loss: 9 nodes line with OF0}
- \label{fig:pl_9_line_of0}
+    \subfloat[OF0]{\label{fig:4/OF0/line/dist50_montecarlo_contour_packetloss}
+    \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]   {Pics/results/4/OF0/line/dist50_montecarlo_contour_packetloss.pdf}}
+    \subfloat[MRHOF]{\label{fig:4/MRHOF/line/dist50_montecarlo_contour_packetloss}
+      \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/line/dist50_montecarlo_contour_packetloss.pdf}}
+   \caption{Mean packet loss: 4 node line scenario with 50 m inter node distance}
+   \label{fig:pl_4_line_50}
 \end{figure}
 
-\begin{figure}[htbp]
-  %\centering
-    \leavevmode
-   % \hspace{-10pt}
-    \subfloat[10 m]{\label{fig:9/MRHOF/line/dist10_montecarlo_contour_packetloss}
-    \hspace{-25pt}
-      \includegraphics[scale=0.23]{Pics/results/9/MRHOF/line/dist10_montecarlo_contour_packetloss.pdf}}
-     \subfloat[50 m]{\label{fig:9/MRHOF/line/dist50_montecarlo_contour_packetloss} 
-     \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/9/MRHOF/line/dist50_montecarlo_contour_packetloss.pdf}} 
-     \subfloat[100 m]{\label{fig:9/MRHOF/line/dist100_montecarlo_contour_packetloss}
-      \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/9/MRHOF/line/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean Packet loss: 9 nodes line with MRHOF}
- \label{fig:pl_9_line_mrhof}
-\end{figure}
-   
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
     \leavevmode
-    \subfloat[10 m]{\label{fig:16/OF0/line/dist10_montecarlo_contour_packetloss}
-    \hspace{-25pt}
-      \includegraphics[scale=0.23]{Pics/results/16/OF0/line/dist10_montecarlo_contour_packetloss.pdf}}
-     \subfloat[50 m]{\label{fig:16/OF0/line/dist50_montecarlo_contour_packetloss} 
-     \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/16/OF0/line/dist50_montecarlo_contour_packetloss.pdf}} 
-     \subfloat[100 m]{\label{fig:16/OF0/line/dist100_montecarlo_contour_packetloss}
-      \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/16/OF0/line/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean Packet loss: 16 nodes line with OF0}
- \label{fig:pl_16_line_of0}
+    \subfloat[OF0]{\label{fig:4/OF0/line/dist100_montecarlo_contour_packetloss}
+     \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/line/dist100_montecarlo_contour_packetloss.pdf}}
+    \subfloat[MRHOF]{\label{fig:4/MRHOF/line/dist100_montecarlo_contour_packetloss}
+     \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/line/dist100_montecarlo_contour_packetloss.pdf}}
+  \caption{Mean packet loss: 4 node line scenario with 100 m inter node distance}
+  \label{fig:pl_4_line_100}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% line 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[p]
+  \centering
+    \leavevmode
+    \subfloat[OF0]{\label{fig:9/OF0/line/dist10_montecarlo_contour_packetloss}
+      \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/line/dist10_montecarlo_contour_packetloss.pdf}}
+    \subfloat[MRHOF]{\label{fig:9/MRHOF/line/dist10_montecarlo_contour_packetloss}
+      \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/line/dist10_montecarlo_contour_packetloss.pdf}}
+   \caption{Mean packet loss: 9 node line scenario with 10 m inter node distance}
+   \label{fig:pl_9_line_10}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
     \leavevmode
-    \subfloat[10 m]{\label{fig:16/MRHOF/line/dist10_montecarlo_contour_packetloss}
-    \hspace{-25pt}
-      \includegraphics[scale=0.23]{Pics/results/16/MRHOF/line/dist10_montecarlo_contour_packetloss.pdf}}
-     \subfloat[50 m]{\label{fig:16/MRHOF/line/dist50_montecarlo_contour_packetloss} 
-     \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/16/MRHOF/line/dist50_montecarlo_contour_packetloss.pdf}} 
-     \subfloat[100 m]{\label{fig:16/MRHOF/line/dist100_montecarlo_contour_packetloss}
-      \hspace{-30pt}
-      \includegraphics[scale=0.23]{Pics/results/16/MRHOF/line/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean Packet loss: 16 nodes line with MRHOF}
- \label{fig:pl_16_line_mrhof}
+    \subfloat[OF0]{\label{fig:9/OF0/line/dist50_montecarlo_contour_packetloss}
+    \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]   {Pics/results/9/OF0/line/dist50_montecarlo_contour_packetloss.pdf}}
+    \subfloat[MRHOF]{\label{fig:9/MRHOF/line/dist50_montecarlo_contour_packetloss}
+      \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/line/dist50_montecarlo_contour_packetloss.pdf}}
+   \caption{Mean packet loss: 9 node line scenario with 50 m inter node distance}
+   \label{fig:pl_9_line_50}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+    \leavevmode
+    \subfloat[OF0]{\label{fig:9/OF0/line/dist100_montecarlo_contour_packetloss}
+     \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/line/dist100_montecarlo_contour_packetloss.pdf}}
+    \subfloat[MRHOF]{\label{fig:9/MRHOF/line/dist100_montecarlo_contour_packetloss}
+     \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/line/dist100_montecarlo_contour_packetloss.pdf}}
+  \caption{Mean packet loss: 9 node line scenario with 100 m inter node distance}
+  \label{fig:pl_9_line_100}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% line 16 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[p]
+  \centering
+    \leavevmode
+    \subfloat[OF0]{\label{fig:16/OF0/line/dist10_montecarlo_contour_packetloss}
+      \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/line/dist10_montecarlo_contour_packetloss.pdf}}
+    \subfloat[MRHOF]{\label{fig:16/MRHOF/line/dist10_montecarlo_contour_packetloss}
+      \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/line/dist10_montecarlo_contour_packetloss.pdf}}
+   \caption{Mean packet loss: 16 node line scenario with 10 m inter node distance}
+   \label{fig:pl_16_line_10}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+    \leavevmode
+    \subfloat[OF0]{\label{fig:16/OF0/line/dist50_montecarlo_contour_packetloss}
+    \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]   {Pics/results/16/OF0/line/dist50_montecarlo_contour_packetloss.pdf}}
+    \subfloat[MRHOF]{\label{fig:16/MRHOF/line/dist50_montecarlo_contour_packetloss}
+      \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/line/dist50_montecarlo_contour_packetloss.pdf}}
+   \caption{Mean packet loss: 16 node line scenario with 50 m inter node distance}
+   \label{fig:pl_16_line_50}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+    \leavevmode
+    \subfloat[OF0]{\label{fig:16/OF0/line/dist100_montecarlo_contour_packetloss}
+     \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/line/dist100_montecarlo_contour_packetloss.pdf}}
+    \subfloat[MRHOF]{\label{fig:16/MRHOF/line/dist100_montecarlo_contour_packetloss}
+     \includegraphics[trim=2cm 0cm 2.8cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/line/dist100_montecarlo_contour_packetloss.pdf}}
+  \caption{Mean packet loss: 16 node line scenario with 100 m inter node distance}
+  \label{fig:pl_16_line_100}
 \end{figure}
 
 For 4 nodes and 9 nodes line scenario, the packet loss performances under the same setup have no difference between OF0 and MRHOF. When the node number increases to 16, simulation with OF0 starts to exhibit a higher packet loss than MRHOF. In the 50 meters inter node distance case (Figure \ref{fig:16/OF0/line/dist50_montecarlo_contour_packetloss}), one can see a packet loss rate higher than 15\% in the last few nodes. This indicates the routes between the root and the nodes either broken, or have a low PRR. When the inter node distance increased to 100 meters, OF0 presents again a good case in terms of packet loss rate (Figure \ref{fig:16/OF0/line/dist100_montecarlo_contour_packetloss}). In the meanwhile, MRHOF continues to show a low packet loss rate.   
