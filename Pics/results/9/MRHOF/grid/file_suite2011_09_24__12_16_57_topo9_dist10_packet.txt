@@ -1,0 +1,8 @@
+Mean RTT
+[         NaN   0.          11.10428472  11.12082872  11.11643776
+  11.16979893  11.14125669  11.13692647  11.16753872  11.16165254]
+Mean number of Sent ICMP Packets, first 10 minutes
+[  0.    11.    20.74  20.68  20.73  20.66  20.63  20.58  20.6   20.65]
+
+Mean number of Sent ICMP Packets, second 10 minutes
+[ 0.    2.52  5.57  5.66  5.57  5.56  5.54  5.67  5.58  5.53]
