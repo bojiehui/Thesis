@@ -3,6 +3,127 @@
 
 The simulations were done for both line and grid scenarios, as well as varying number of nodes and internode distances (4, 9, 16 nodes and 10, 50, 100 meters respectively). Furthermore, for each topology both OF0 and MRHOF were simulated. A total of 100 separate simulations were performed for each scenario setup. The simulation results are arranged in four parts according to the different simulation metrics, and each simulation metric is examined for individual scenario setup. 
 
+\section{Default Route Discovery Time}
+\label{default route}
+
+The procedure for detecting the default route is described here. First Trickle sets the initial timer period t randomly in range of $[128,256)\:ms$\@. After the timer fired, the root (node 1 in the simulation) multicasts its first DIO message. Whichever node receives the message checks for the consistency between its own DODAG information and the one the DIO carries. Since it is the first DIO the receiver receives, it decides the DIO contains information about a new DODAG. Then the receiver adds the default route through the root node (node 1)\@, updates its information to join the DODAG, and sets its own Trickle timer to the initial value. After the timer fired, the receiver will forward the DIO, so the nodes which are more than one hop away from the root can add the default route as well.
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+      \includegraphics[scale=0.38]
+      {Pics/results/4/MRHOF/line/dist10_montecarlo_cdf_hist.pdf}
+   \caption{CDF of the default route discovery time: 4 nodes line scenario with 10 m internode distance}
+    \label{fig:dist10_montecarlo_cdf_hist}
+  \end{center}
+\end{figure}
+
+The default route discovery time is presented by means of a CDF over the whole network. Figure \ref{fig:dist10_montecarlo_cdf_hist} to Figure \ref{fig:dist100_montecarlo_cdf_hist} show the CDF of default route discovery time for all 3 child nodes in the 4-node line scenarios with different internode distances.
+\newline
+
+In Figure \ref{fig:dist10_montecarlo_cdf_hist}, the internode distance is only 10 m, all 3 child nodes are one hop away from the root. In other words, all 3 child nodes will receive the first DIO from the root within the range of $[128, 256)\:ms$. Therefore the CDF shows a linear behaviour until the default routes are found for all nodes. In Figure \ref{fig:dist50_montecarlo_cdf_hist}\@'s case, the distance between root and node 4 (the furthest node from the root) is 150 m which corresponds to a 39\% PRR. So node 4 may be two hops away from the root. It is shown in Figure \ref{fig:dist50_montecarlo_cdf_hist}, the linearity only goes up to around 70\%, and the CDF curve after that correspond to the addition of two uniformly distributed random variables (the time when both one-hop node and two-hop node find the default routes).  
+\newline
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+      \includegraphics[scale=0.38]
+      {Pics/results/4/MRHOF/line/dist50_montecarlo_cdf_hist.pdf}
+   \caption{CDF of the default route discovery time: 4 nodes line scenario with 50 m internode distance}
+    \label{fig:dist50_montecarlo_cdf_hist}
+  \end{center}
+\end{figure}
+  
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+      \includegraphics[scale=0.38]
+      {Pics/results/4/MRHOF/line/dist100_montecarlo_cdf_hist.pdf}
+   \caption{CDF of the default route discovery time: 4 nodes line scenario with 100 m internode distance}
+    \label{fig:dist100_montecarlo_cdf_hist}
+  \end{center}
+\end{figure}
+
+The effect can be more precisely observed in Figure \ref{fig:dist100_montecarlo_cdf_hist}. Here node 2 is one hop away from the root while node 3 is two hops away and node 4 is three hops away. The corresponding range of default route detection time for node 2, 3 and 4 are $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$ respectively. Accordingly Figure \ref{fig:dist100_montecarlo_cdf_hist} shows 3 phases in the CDF curve. The first phase (Time-axis from 128 ms to 256 ms) is linear. It demonstrates the CDF of the uniform distributed default route detection time for node 2. The second phase starts from 128 ms to 384 ms. The CDF of this phase correspond to a triangle PDF which is the convolution of two uniform distributions. From 384 ms to 768 ms, a third uniform distribution is added. The CDF of this phase corresponds to an roughly bell shaped PDF.
+\newline
+
+The 95th percentiles of default route detection time for line scenario and grid scenario are shown in Table \ref{table:95}. More CDF histograms of default route detection time for other scenario setups can be found in Appendix \ref{Appx:cdf}. 
+
+\begin{table}
+\caption{The 95th percentile of default route detection time}
+\centering
+    \begin{tabular}{ | c | c | c | c | c |} \hline
+     \multicolumn{1}{|c|}{Scenario} & No. of Nodes & \multicolumn{3}{|c|}{Internode Distance / m }\\ \hline
+     \multicolumn{1}{|c|}{\multirow{4}{*}{Line}} &
+     \multicolumn{1}{|c|}{}      & 10      & 50      & 100     \\  \cline{2-5}
+     \multicolumn{1}{|c|}{} & 4  & 250 ms  & 448 ms  & 650 ms  \\  \cline{2-5}
+     \multicolumn{1}{|c|}{} & 9  & 256 ms  & 784 ms  & 1598 ms \\  \cline{2-5}
+     \multicolumn{1}{|c|}{} & 16 & 320 ms  & 1363 ms & 2880 ms \\  \cline{1-5}
+     \multicolumn{1}{|c|}{\multirow{4}{*}{Grid}} &
+     \multicolumn{1}{|c|}{4}  & 256 ms  & 256 ms  & 380 ms  \\  \cline{2-5}
+     \multicolumn{1}{|c|}{} & 9  & 250 ms  & 260 ms  & 576 ms  \\  \cline{2-5}
+     \multicolumn{1}{|c|}{} & 16 & 250 ms  & 416 ms  & 736 ms  \\  \cline{1-5}  
+    \end{tabular}
+  \label{table:95}
+\end{table}
+
+\section{Control Message Overhead}
+\label{ICMP}
+The main advantage of using the Trickle algorithm is that it reduces the amount of control messages. The amount of control message (DIS, DIO and DAO) overhead in two 10 minutes time intervals will be presented. The first 10 minutes interval is taken right after all nodes are booted up. The next 10 minutes after the first 10 minutes interval are taken as the second 10 minutes interval. Due to \texttt{UDPEcho} being configured to send messages with a period of 2 s, the simulation for 4-node topology will only last for 600 ms, so the control message overhead of the second interval will not be evaluated for 4-node scenarios. 
+
+\subsection{Line Scenario}
+\label{icmp:line}
+Figure \ref{fig:9_MRHOF_line_10_icmp} to Figure \ref{fig:9_MRHOF_line_100_icmp} show the control message overhead  of the 9-node line scenarios. One common thing that can be observed in these figures is, that node 1 always sends the least ICMP messages. It is because as root, node 1 does not sent any DIS and DAO messages. It only sends DIO messages.
+\newline
+
+In Figure \ref{fig:9_MRHOF_line_10_icmp0}, the control message overhead is equally distributed among node 3 to node 9 since all nodes are one hop away from the root. During the second 10 minutes interval (Figure \ref{fig:9_MRHOF_line_10_icmp1}), the amount of control messages is reduced from around 21 in the first 10 minutes to around 6 due to the effect of the Trickle timer. Under all the other scenario setups, the control messages sent during the second time interval significantly decrease in different degrees as compared to the ones sent in the first time interval.
+\newline
+
+As mentioned in Section \ref{RPL:ICMP}, DAO is the control message which discovers and maintains the downward  route. It is sent upwards by a node and forwarded by its DAO parents until the message reaches the DODAG root. Therefore the nodes which are closer to the root are forwarding DAO messages of the ones further away from the root. Figure \ref{fig:9_MRHOF_line_50_icmp0} and Figure \ref{fig:9_MRHOF_line_100_icmp0} accurately demonstrate this behavior - the amount of control messages decreases along the downward route. In Figure \ref{fig:9_MRHOF_line_100_icmp0} under 16-node grid scenario with 100 m internode distance, the mean control messages sent for node 6 (closer to the root) is 74 while node 10 (in the middle) sent 35 and node 16 (furthest to the root) sent 22. During the second time interval, although the control message overhead is smaller compared to the first time interval, the same behavior can still be observed in Figure \ref{fig:9_MRHOF_line_100_icmp1}.
+\newline 
+
+The results of 16-node line scenarios and grid scenarios are consistent with the result shown above. The figures can be found in Appendix \ref{Appx:icmp}
+  
+\begin{figure}[htbp]
+  \begin{center}
+  	\hspace{-20pt}
+    \leavevmode
+    \subfloat[First 10 minutes]{\label{fig:9_MRHOF_line_10_icmp0}
+      \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist10_montecarlo_contour_sent_ICMP_0.pdf}}
+       \hspace{-30pt}
+    \subfloat[Second 10 minutes]{\label{fig:9_MRHOF_line_10_icmp1}
+       \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist10_montecarlo_contour_sent_ICMP_1.pdf}}
+    \caption{ICMP messages in a 9-node line scenario with 10m internode distance}
+    \label{fig:9_MRHOF_line_10_icmp}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+   \hspace{-20pt}
+    \leavevmode
+    \subfloat[First 10 minutes]{\label{fig:9_MRHOF_line_50_icmp0}
+      \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist50_montecarlo_contour_sent_ICMP_0.pdf}}
+       \hspace{-30pt}
+    \subfloat[Second 10 minutes]{\label{fig:9_MRHOF_line_50_icmp1}
+       \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist50_montecarlo_contour_sent_ICMP_1.pdf}}
+    \caption{ICMP messages in a 9-node line scenario with 50m internode distance}
+    \label{fig:9_MRHOF_line_50_icmp}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+  	\hspace{-20pt}
+    \leavevmode
+    \subfloat[First 10 minutes]{\label{fig:9_MRHOF_line_100_icmp0}
+      \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist100_montecarlo_contour_sent_ICMP_0}}
+      \hspace{-30pt}
+    \subfloat[Second 10 minutes]{\label{fig:9_MRHOF_line_100_icmp1}
+       \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist100_montecarlo_contour_sent_ICMP_1}}
+    \caption{ICMP messages in a 9-node line scenario with 100m internode distance}
+    \label{fig:9_MRHOF_line_100_icmp}
+  \end{center}
+\end{figure}
+
 \section{Packet Loss Rate}
 \label{pl}
 
@@ -241,7 +362,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
 The mean RTT for various node numbers and internode distances of line scenario are shown in Figure \ref{fig:rtt_4_line_10} to Figure \ref{fig:rtt_16_line_100}. Agian, the left side figures shows the mean RTT results with OF0, and the right ones shows that with MRHOF.
 \newline
 
-Due to the PRR drops as the distance between two nodes increases, the link quality becomes bad, and the packet can not reach the destination within one hop. Therefore RPL forms routes for the multi-hop delivery. This multi-hop delivery can be clearly seen by compareing the results of the 9-node line scenario. When the internode distance is 10 m (Figure \ref{fig:9/OF0/line/dist10_montecarlo_contour}), node 9 is one hop away from the root, and has a mean RTT of 11 ms. When the internode distance increases to 50 m (Figure \ref{fig:9/OF0/line/dist50_montecarlo_contour}), node 9 is at least three hops away from the root, and has a mean RTT of 56 ms. When the internode distance continues to increase to 100 m, node 9 becomes eight hops away, and the mean RTT for node 9 becomes 101 ms. This phenomenon of increasing mean RTT with distance can be observed in the 4- and 16-node scenarios as well. For line scenario, there is no apparent difference between OF0 and MRHOF in terms of increasement of mean RTT ove distance.
+Due to the PRR drops as the internode distance increases, the link quality between two nodes becomes bad, and packets can not reach the destination within one hop. Therefore RPL forms routes for the multi-hop delivery. This multi-hop delivery can be clearly seen by compareing the results of the 9-node line scenario. When the internode distance is 10 m (Figure \ref{fig:9/OF0/line/dist10_montecarlo_contour}), node 9 is one hop away from the root, and has a mean RTT of 11 ms. When the internode distance increases to 50 m (Figure \ref{fig:9/OF0/line/dist50_montecarlo_contour}), node 9 is at least three hops away from the root, and has a mean RTT of 56 ms. When the internode distance continues to increase to 100 m, node 9 becomes eight hops away, and the mean RTT for node 9 becomes 101 ms. This phenomenon of increasing mean RTT with distance can be observed in the 4- and 16-node scenarios as well. For line scenario, there is no apparent difference between OF0 and MRHOF in terms of increasement of mean RTT over internode distance. Moreover, under the same scenario setup, the mean RTT of the first hop is typically 11 ms, and each addtional hop adds 13 ms to it.
 \newline
 
 Similar to the Mean packet loss rate results, the mean RTT performances of OF0 and MRHOF are different for the 16-node topology. In Figure \ref{fig:16/OF0/line/dist50_montecarlo_contour} due to the bad routes between the root and the most distant nodes, the mean RTT becomes higher than 250 ms while MRHOF keeps a mean RTT within 150 ms even for the furthest node.
@@ -366,8 +487,8 @@ Moreover, in Figure \ref{fig:16/OF0/grid/dist50_montecarlo_contour} and Figure \
 \newline
 
 By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of mean RTT MRHOF most likely to perform better than OF0 for the nodes which are more than one hop away. 
-\newline
 
+\clearpage
 \begin{figure}[p]
   \centering
     \leavevmode
@@ -474,115 +595,10 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
   \caption{Mean RTT: 16-node grid scenario with 100 m internode distance}
  \label{fig:rtt_16_grid_100}
 \end{figure}
-\clearpage
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Default Route Discovery Time}
-\label{default route}
 
-The procedure for detecting the default route is described here. First Trickle sets the initial timer period t randomly in range of $[128,256)\:ms$\@. After the timer fired, the root (node 1) multicasts its first DIO message. Whichever node receives the message checks for the consistency between its own DODAG information and the one the DIO carries. Since it is the first DIO the receiver receives, it decides the DIO contains information about a new DODAG. Then the receiver adds the default route through the root node (node 1)\@, updates its information to join the DODAG, and sets its own Trickle timer to the initial value. After the timer fired, the receiver will forward the DIO, so the nodes which are more than one hop away from the root can add the default route as well.
-\newline
-
-The default route discovery time is presented by means of a CDF. Figure \ref{fig:dist10_montecarlo_cdf_hist} to Figure \ref{fig:dist100_montecarlo_cdf_hist} show the CDF of default route discovery time for all 3 child nodes in the 4-node line scenarios with different internode distances.
-
-\begin{figure}[htbp]
-  \begin{center}
-    \leavevmode
-      \includegraphics[width=\textwidth]
-      {Pics/results/4/MRHOF/line/dist10_montecarlo_cdf_hist.pdf}
-   \caption{CDF: the default route discovery time}
-    \label{fig:dist10_montecarlo_cdf_hist}
-  \end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-  \begin{center}
-    \leavevmode
-      \includegraphics[width=\textwidth]
-      {Pics/results/4/MRHOF/line/dist50_montecarlo_cdf_hist.pdf}
-   \caption{CDF: the default route discovery time}
-    \label{fig:dist50_montecarlo_cdf_hist}
-  \end{center}
-\end{figure}
- % \vspace{-40pt}
-  
-\begin{figure}[htbp]
-  \begin{center}
-    \leavevmode
-      \includegraphics[width=\textwidth]
-      {Pics/results/4/MRHOF/line/dist100_montecarlo_cdf_hist.pdf}
-   \caption{CDF: the default route discovery time}
-    \label{fig:dist100_montecarlo_cdf_hist}
-  \end{center}
-\end{figure}
-%\vspace{-40pt}
-
-In Figure \ref{fig:dist10_montecarlo_cdf_hist}, the internode distance is only 10 m, all 3 child nodes are one hop away from the root. In other words, all 3 child nodes will receive the first DIO from the root within the range of $[128, 256)\:ms$. Therefore the CDF shows a linear behaviour until the default routes are found for all nodes. In Figure \ref{fig:dist50_montecarlo_cdf_hist}\@'s case, the distance between root and node 4 (the furthest node from the root) is 150 m which corresponds to a 39\% PRR. So node 4 may be two hops away from the root. It is shown in Figure \ref{fig:dist50_montecarlo_cdf_hist}, the linearity only goes up to around 70\% and additioin of two uniformly sidtributed random variables (times node 2 and node 3 found the default routes),  
-\newline
-The effect can be more precisely observed in Figure \ref{fig:dist100_montecarlo_cdf_hist}. Here node 2 is one hop away from the root while node 3 is two hops away and node 4 is three hops away. The corresponding time range of default route detection time for node 2, 3 and 4 after booted up are $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$ respectively. Accordingly Figure \ref{fig:dist100_montecarlo_cdf_hist} shows 3 segments which correspond to the CDF of three approximate normal distributes with different mean.
-\newline
-
-More cdf histograms of default route detection time for other scenario setups can be found in Appendix \ref{Appx:cdf}. 
-
-\section{Control Message Overhead}
-\label{ICMP}
-The main advantage of using Trickle algorithm is it reduces the amount of control messages. The amount of control message (DIS, DIO and DAO) overhead in two 10 minutes time intervals will be presented. The first 10 minutes interval is taken right after all nodes are booted up, and the next 10 minutes after the first 10 minutes interval is taken as the second 10 minutes interval. Due to the \texttt{UDPEcho} is configured to sent messages with a period of 2 s, the simulation for 4-node topology will only last for 600 s, so the control message overhead will not be evaluated. 
-
-\subsection{Line Scenario}
-\label{icmp:line}
-Figure \ref{fig:9_MRHOF_line_10_icmp} to Figure \ref{fig:9_MRHOF_line_100_icmp} show the control message overhead  of 9-node line scenarios. One common thing can be observed in these figures, that is node 1 always sends the least ICMP messages. It is because as root, node 1 does not sent any DIS and DAO message.
-\newline
-
-In Figure \ref{fig:9_MRHOF_line_10_icmp0}, the control message overhead is equally distributed among node 3 to node 9 since all nodes are one hop away from the root. During the second 10 minutes interval (Figure \ref{fig:9_MRHOF_line_10_icmp1}), the amount of control message is reduced to one third of the first 10 minutes due to the effect of Trickle timer.
-\newline
-
-As mentioned in Section \ref{RPL:ICMP}, DAO is the control message which discovers and maintains the downward  route. It is sent upwards by a node and forwarded by its DAO parents until the message reach the DODAG root. Therefore the nodes which are closer to the root should sends more DAO than the ones further away from the root. Figure \ref{fig:9_MRHOF_line_50_icmp0} and Figure \ref{fig:9_MRHOF_line_100_icmp0} accurately demonstrate this behavior - the amount of control message decreases along the downward route. During the second time interval, although the control message overhead is smaller compared to the first time interval, the same behavior can still be observed. 
-\newline 
-
-The results of 16 nodes line scenarios and Grid scenarios are consistent with the conclusions drew above. The figure can be found in Appendix \ref{Appx:icmp}
-  
-\begin{figure}[htbp]
-  \begin{center}
-  	\hspace{-20pt}
-    \leavevmode
-    \subfloat[First 10 minutes]{\label{fig:9_MRHOF_line_10_icmp0}
-      \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist10_montecarlo_contour_sent_ICMP_0.pdf}}
-       \hspace{-30pt}
-    \subfloat[Second 10 minutes]{\label{fig:9_MRHOF_line_10_icmp1}
-       \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist10_montecarlo_contour_sent_ICMP_1.pdf}}
-    \caption{ICMP messages in a 9-node line scenario with 10m internode distance}
-    \label{fig:9_MRHOF_line_10_icmp}
-  \end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-  \begin{center}
-   \hspace{-20pt}
-    \leavevmode
-    \subfloat[First 10 minutes]{\label{fig:9_MRHOF_line_50_icmp0}
-      \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist50_montecarlo_contour_sent_ICMP_0.pdf}}
-       \hspace{-30pt}
-    \subfloat[Second 10 minutes]{\label{fig:9_MRHOF_line_50_icmp1}
-       \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist50_montecarlo_contour_sent_ICMP_1.pdf}}
-    \caption{ICMP messages in a 9-node line scenario with 50m internode distance}
-    \label{fig:9_MRHOF_line_50_icmp}
-  \end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-  \begin{center}
-  	\hspace{-20pt}
-    \leavevmode
-    \subfloat[First 10 minutes]{\label{fig:9_MRHOF_line_100_icmp0}
-      \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist100_montecarlo_contour_sent_ICMP_0}}
-      \hspace{-30pt}
-    \subfloat[Second 10 minutes]{\label{fig:9_MRHOF_line_100_icmp1}
-       \includegraphics[scale=0.3]{Pics/results/9/MRHOF/line/dist100_montecarlo_contour_sent_ICMP_1}}
-    \caption{ICMP messages in a 9-node line scenario with 100m internode distance}
-    \label{fig:9_MRHOF_line_100_icmp}
-  \end{center}
-\end{figure}
 
 

@@ -1,29 +1,41 @@
 \chapter{Conclusion and Outlook}
 \label{Con}
-\section{Conclusion}
+\section{Conclusion} 
 \label{Con:Con}
-During this master thesis the Routing Protocol for LLNs (RPL) has been studied. The study was based on the TOSSIM simulation of BLIP 2.0 with rfxlink radio stack. 
+(TODO: maybe some more stuff?)
+During this master thesis the Routing Protocol for LLNs (RPL) has been studied. The study was based on the simulation of BLIP 2.0 with the rfxlink radio stack using the simulation tool \texttt{TOSSIM}. 
 \newline
 
-Low power consumption and low message overhead are crucial due to the resource constrains in LLNs. In RPL, the node which is closer to the root tend to have more control message traffic than the further ones. Furthermore, RPL uses Trickle algorithm to control the generating of DIOs. In various scenarios, it efficiently reduces the control message overhead as soon as the routing topology is stabilized.   
+Low power consumption and low control message overhead are crucial due to the resource constraints in LLNs. In RPL, three kinds of control messages are defined - DIS and DIO messages are sent to construct and maintain upward routes while DAOs are used to discover and maintain downward routes. The node which is closer to the root tends to send more control messages than the further ones. Furthermore, RPL uses the Trickle algorithm to control the generation of DIOs. In various scenarios, it efficiently reduces the control message overhead as soon as the routing topology is stabilized. For the root who only sends DIOs, the typical mean number of control messages it sends during the first 10 minutes is 11 and 2.5 during the second 10 minutes. For non-root node, this decreasing rate usually varies between half to a quarter.
 \newline
 
-Objective Functions (OFs) are defined for RPL to meet different optimization objectives. OF0 and MRHOF are two OFs that are implemented in BLIP 2.0. The performances are evaluated in terms of RTT and packet loss with the application \texttt{UDPEcho}\@. The simulation results shows that OF0 only has good performance in simple and low density scenarios. For more dense scenarios, OF0 has unstable performances due to it chooses route without any objective guarantee. On the other hand, MRHOF with ETX routing metric has less packet loss and lower RTT than OF0 in larger and more complicated topologies, also the performance of MRHOF with ETX is more stable.  
+As soon as the nodes boot up, DIOs are sent to discover the default routes. The sending of DIO messages is governed by the Trickle timer. Due to the Trickle algorithm, the default route detection time of the nodes with the same routing hop-count is uniform distributed, and that of the whole network is appoximately normal distributed. 
+\newline
+ 
+Objective Functions (OFs) are defined for RPL to meet different optimization objectives. OF0 and MRHOF are two OFs that are implemented in BLIP 2.0. The performances are evaluated in terms of RTT and packet loss with the application \texttt{UDPEcho}\@. The simulation results shows that OF0 has equally good performance as MRHOF only in simple and low density scenarios. For more dense scenarios, OF0 has unstable performances due to the fact that it chooses routes without using link layer information. On the other hand, MRHOF with ETX routing metric has less packet loss and lower RTT than OF0 in larger and more complicated topologies. Additionally MRHOF with ETX is more stable.  
 \newline
 
 \section{Outlook}
 \label{outlook}
-simulation with other scenarios can be conducted. Figure \ref{fig:container} shows a real life scenario. 
+
+In this thesis, the application \texttt{UDPEcho} shows the basic performances of RPL, but there are many other applications which are worth exploring. Currently, a client and server implementation of the
+Constrained Application Protocol(CoAP) have been done for TinyOS/BLIP 2.0 in \cite{TP11} and the simulation of line sceanrio and grid sceanrio has been presented. In the future, some real-life scenario with CoAP can be simulated for evaluation. One pratical real-life scenario would be the "Intelligent Container" project at the University of Bremen. Figure \ref{fig:container} shows an example container scenario with 32 child node and 1 border router. This scenario defines five types of connections depending on the position of the sensor nodes: 
+\begin{itemize}
+\item Connections betweenn nodes on the roof of the container.
+\item Connections between nodes on the roof of the container and those on top of the pallets.
+\item Connections between nodes on the top of the pallets.
+\item Connections between nodes on top of the pallets and inside the goods.
+\item Connections between nodes that are inside the goods.
+\end{itemize}
+
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
       \includegraphics[scale=0.45]
       {Pics/container.pdf}
-   \caption{A container scenario: 32 sensor nodes and 1 border router, three types of connections depending on the position of the node: on top of the container, on top of the pallet, and in between the goods}
+   \caption{A container scenario with 32 sensor nodes and 1 border router}
     \label{fig:container}
   \end{center}
 \end{figure} 
-
-Furthermore, many other applications can be simulated. In this thesis, the application UDPEcho shows the basic performances of RPL, but there are many other applications in BLIP 2.0 which are worth exploring, and the author
-hopes they are done so in the near future.
+ 
 

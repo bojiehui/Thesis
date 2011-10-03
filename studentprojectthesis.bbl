@@ -114,10 +114,15 @@ P.~Levis, N.~Lee.
 \newblock pp.~1--2, September 17, 2003.
 
 \bibitem[RL08]{RL08}
-T.Rusak, P. Levis.
+T. Rusak, P. Levis.
 \newblock {\em Investigating a Physically-Based Signal Power Model for
 Robust Low Power Wireless Link Simulation}.
 \newblock MSWiM, 2008. 
+
+\bibitem[TP11]{TP11}
+T. P\"{o}tsch.
+\newblock {\em Implementation, Simulation and Measurements of the CoAP Protocol}.
+\newblock Augest 16, 2011.
 
 
 
