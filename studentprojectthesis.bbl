@@ -1,38 +1,48 @@
 \selectlanguage{\english}
-\begin{thebibliography}{draft-ietf-6lowpan-nd-15}
+\begin{thebibliography}{draft-ietf-6lowpan-nd-17}
 
 \bibitem[uIPv6]{uIPv6}
-\url{http://www.sics.se/~adam/contiki/docs-uipv6/}.
+\newblock{Contiki uIPv6}.\\
+\url{http://www.sics.se/~adam/contiki/docs-uipv6}
 
 \bibitem[Sensinode]{Sensinode}
-\url{ http://www.sensinode.com/EN/news/nanostack-v1.1.0-release.html}.
+\newblock {Sensinode NanoStack}.\\
+\url{ http://www.sensinode.com/EN/news/nanostack-v1.1.0-release.html}
 
 \bibitem[Jennic]{Jennic}
-\url{http://www.jennic.com/products/overview/overview}.
+\newblock {JenNet-IP wireless networking for the ``Internet of Things''}.\\
+\url{http://www.jennic.com/products/protocol_stacks/jennet-ip}
 
 \bibitem[Nivis]{Nivis}
-\url{http://www.nivis.com/wireless_sensor_technology/ISA100.11a.php}.
+\newblock {Nivis ISA100.11a}.\\
+\url{http://www.nivis.com/wireless_sensor_technology/ISA100.11a.php}
 
 \bibitem[SB09]{ShelbyBormann2009}
 Z. Shelby, C. Borman.
 \newblock {\em 6LoWPAN: the Wireless Embedded Internet}.
 \newblock John Wiley \& Sons Ltd., 2009.
 
+\bibitem[BLIP2.0]{BLIP2.0}
+\newblock{BLIP 2.0}.\\
+\url{http://docs.tinyos.net/tinywiki/index.php/BLIP_2.0}
+
 \bibitem[draft-ietf-roll-rpl-19]{draft-ietf-roll-rpl-19}
 T. Winter, P. Thubert, A. Brandt, T. Clausen, J. Hui, R. Kelsey, P. Levis, K. Piste, 
 R. Struik, JP. Vasseur.
 \newblock {\em RPL: IPv6 Routing Protocol for Low power and Lossy Networks}.
-\newblock draft-ietf-roll-rpl-19, March 2011.
+\newblock {IETF draft-ietf-roll-rpl-19, pp.~12, March 2011}.\\
+\url{http://tools.ietf.org/html/draft-ietf-roll-rpl-19}
 
 \bibitem[draft-ietf-6lowpan-hc-15]{draft-ietf-6lowpan-hc-15}
 J. Hui, P. Thubert. 
 \newblock {\em Compression Format for IPv6 Datagrams in Low Power and Lossy Networks (6LoWPAN)}.
-\newblock draft-ietf-6lowpan-hc-15, February 2011.
+\newblock {IETF draft-ietf-6lowpan-hc-15, February 2011}.
 
-\bibitem[draft-ietf-6lowpan-nd-15]{draft-ietf-6lowpan-nd-15}
+\bibitem[draft-ietf-6lowpan-nd-17]{draft-ietf-6lowpan-nd-17}
  Z. Shelby, S. Chakrabarti, E. Nordmark.
 \newblock {\em Neighbor Discovery Optimization for Low-power and Lossy Networks}.
-\newblock draft-ietf-6lowpan-nd-15, December 2010.
+\newblock {IETF draft-ietf-6lowpan-nd-17, December 2010}.\\
+\url{http://tools.ietf.org/html/draft-ietf-6lowpan-nd-17}
 
 \bibitem[IEEE 802.15.4]{IEEE 802.15.4}
 {\em IEEE Std 802.15.4-2003: Wireless Medium Access Control (MAC) and Physical Layer (PHY) Specifications for Low-Rate Wireless Personal Area Networks (LR-WPANs)}.
@@ -41,64 +51,76 @@ J. Hui, P. Thubert.
 \bibitem[RFC 1752]{RFC 1752}
 S. Bradner, B. Mankin.
 \newblock{\em The Recommendation for the IP Next Generation Protocol}.
-\newblock IEFT RFC 1752, January 1995.
+\newblock IEFT RFC 1752, January 1995.\\
+\url{http://tools.ietf.org/html/rfc1752}
 
 \bibitem[RFC 4944]{RFC 4944}
 D. Culler, J. Hui, N. Kushalnagar, G. Montenegro.
 \newblock {\em Transmission of IPv6 Packets over IEEE 802.15.4 Networks}.
-\newblock IETF RFC 4944, September 2007.
+\newblock IETF RFC 4944, September 2007.\\
+\url{http://tools.ietf.org/html/rfc4944}
 
 \bibitem[RFC 4919]{RFC 4919}
 N. Kushalnagar, G. Montenegro, C. Schumacher.
 \newblock {\em IPv6 over Low-Power Wireless Personal Area Networks (6LoWPANs): Overview, assumptions, Problem statements, and Goals}.
-\newblock IETF RFC 4919, pp.~4, August 2007.
+\newblock IETF RFC 4919, pp.~4, August 2007.\\
+\url{http://tools.ietf.org/html/rfc4919}
 
 \bibitem[RFC 5548]{RFC 5548}
 M. Dohler, T. Watteyne, T. Winter, D. Barthel.
 \newblock {\em Routing Requirements for Urban Low-Power and Lossy Networks}.
-\newblock IETF RFC 5548, May 2009.
+\newblock IETF RFC 5548, May 2009.\\
+\url{http://tools.ietf.org/html/rfc5548}
 
 \bibitem[RFC 5673]{RFC 5673}
 K. Pister, P. Thubert, S. Dwars, T. Phinney.
 \newblock {\em Industrial Routing Requirements in Low-Power and Lossy Networks}.
-\newblock IETF RFC 5673, October 2009.
+\newblock IETF RFC 5673, October 2009.\\
+\url{http://tools.ietf.org/html/rfc5673}
 
 \bibitem[RFC 5826]{RFC 5826}
 A. Brandt, J. Buron, G. Porcu.
 \newblock {\em Home Automation Routing Requirements in Low-Power and Lossy Networks}.
-\newblock IETF RFC 5826, April 2010.
+\newblock IETF RFC 5826, April 2010.\\
+\url{http://tools.ietf.org/html/rfc5826}
 
 \bibitem[RFC 5867]{RFC 5867}
 J. Martocci, P. De Mil, N. Riou, W. Vermeylen. 
 \newblock {\em Building Automation Routing Requirements in Low-Power and Lossy Networks}.
-\newblock IETF RFC 4919, June 2010.
+\newblock IETF RFC 4919, June 2010.\\
+\url{http://tools.ietf.org/html/rfc5867}
 
 \bibitem[MRHOF]{MRHOF}
 O. Gnawali, P. Levis. 
 \newblock {\em The Minimum Rank Objective Function with Hysteresis}.
-\newblock draft-ietf-roll-minrank-hysteresis-of-04, pp.~4, May 2011.
+\newblock {IETF draft-ietf-roll-minrank-hysteresis-of-04, pp.~2, pp.~4, May 2011}.\\
+\url{http://tools.ietf.org/html/draft-ietf-roll-minrank-hysteresis-of-04}
 
-\bibitem[draft-ietf-roll-of0-19]{draft-ietf-roll-of0-19}
+\bibitem[draft-ietf-roll-of0-20]{draft-ietf-roll-of0-20}
 P. Thubert. 
 \newblock {\em RPL Objective Function Zero}.
-\newblock draft-ietf-roll-of0-19, pp.~2, August 2011.
+\newblock {IETF draft-ietf-roll-of0-20, pp.~2, August 2011}.\\
+\url{http://tools.ietf.org/html/draft-ietf-roll-of0-20}
 
 \bibitem[RFC 6206]{RFC 6206}
 P. Levis, T. Clausen, J. Hui, O. Gnawali, J. Ko.
 \newblock {\em The Trickle Algorithm}.
-\newblock IETF RFC 6206, pp.~5--6, March 2011.
-
+\newblock IETF RFC 6206, pp.~5--6, March 2011.\\
+\url{http://tools.ietf.org/html/rfc6206}
 
 \bibitem[TinyOS]{TinyOS}
-\url{http://www.tinyos.net/}.
+\newblock {TinyOS}.\\
+\url{http://www.tinyos.net}
 
 \bibitem[TEP 126]{TEP 126}
 D. Moss, J. Hui, P. Levis, J. Choi
 \newblock {\em CC2420 Radio Stack}.
-\newblock TEP 126, pp.~1, June 2007.
+\newblock TEP 126, pp.~1, June 2007.\\
+\url{http://www.tinyos.net/tinyos-2.x/doc/html/tep126.html}
 
 \bibitem[BLIP]{BLIP}
-\url{http://docs.tinyos.net/index.php/BLIP_Tutorial}.
+\newblock{BLIP Tutorial}.\\
+\url{http://docs.tinyos.net/index.php/BLIP_Tutorial}
 
 \bibitem[LLWC]{LLWC}
 P.~Levis, N.~Lee, M.~Welsh, D.~Culler.
@@ -106,7 +128,8 @@ P.~Levis, N.~Lee, M.~Welsh, D.~Culler.
 \newblock SenSys '03: Proceedings of the 1st international conference on Embedded networked sensor systems, pp.~126--137, 2003. 
 
 \bibitem[rfxsim]{rfxsim}
-\url{https://github.com/mortenthansen/tinyos/tree/rfxsim}.
+\newblock{Repository of rfxsim}.\\
+\url{https://github.com/mortenthansen/tinyos/tree/rfxsim}
 
 \bibitem[TOSSIM]{TOSSIM}
 P.~Levis, N.~Lee.
