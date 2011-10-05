@@ -18,7 +18,7 @@ Configuring networks for TOSSIM simulation usually includes setting
 up a network topology and an interference model. For the topology, a file with the format~\texttt{Source Destination Gain} needs to be created. TOSSIM uses the Closest Pattern Matching (CPM) algorithm to calculate channel noise. It is a wireless noise simulation model
 based on statistical extraction from empirical noise data. It works by taking a noise trace as input to generate the interference model. This method is accepted to be much more accurate and preferable than the traditional, Independent Packet Loss (IPL) models~\cite{TOSSIM}.
 
-\section{Enabling Simulation}
+\section{Enabling the Simulation}
 \label{Sim:Enabling}
 
 The simulation had already been enabled for a multi-hop network using the BLIP 1.0 implementation before. The radio stack for this simulation was the CC2420. But due to the significant changes that were done to both the CC2420 radio stack and BLIP, considerable work was required to re-enable the simulation of BLIP 2.0. 
@@ -44,7 +44,7 @@ The re-enabling of the simulation required the following steps:
 \label{Sim:Setup}
 \subsection{Methodology}
 \label{Sim:Method}
-The application~\texttt{UDPEcho} is used in the simulation to evaluate the performance of the RPL protocol. It is configured to behave similar to the application~\texttt{Ping}. A node sends out a data packet to another node, which replies back to the original sender. However, this is done on the application layer. The application is installed on the simulated root node and the child nodes. In the simulation, the root node will send 100 \texttt{UDPEcho} packets one after another to a child node, then continue to send another 100 \texttt{UDPEcho} packets to the next child node, until all child nodes are  ``pinged''.     
+The application~\texttt{UDPEcho} is used in the simulation to evaluate the performance of the RPL protocol. It is configured to behave similarly to the application~\texttt{Ping}. A node sends out a data packet to another node, which replies back to the original sender. However, this is done on the application layer. The application is installed on the simulated root node and the child nodes. In the simulation, the root node will send 100 \texttt{UDPEcho} packets one after another to a child node, then continue to send another 100 \texttt{UDPEcho} packets to the next child node, until all child nodes are  ``pinged''.     
 
 The simulation is done for various scenarios with different number of nodes, as well as with objective functions OF0 and MRHOF. The results of the simulation is visualized with the python plotting library \texttt{Matplotlib}.
 

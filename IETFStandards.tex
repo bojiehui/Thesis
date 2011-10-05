@@ -23,7 +23,7 @@ Instead of the traditional IP based model, a 6LoWPAN protocol stack adds the 6Lo
 
 A 6LBR is a network layer router; when packets are routed though the 6LBR to an external IPv6 based network, the adaptation layer in the LBR translates the LoWPAN format header into a full IPv6 format, and
 vice versa. In some practical applications, the adaptation layer is implemented along with an IP
-layer such as, for example, in the 6LoWPAN implementationi BLIP.
+layer such as, for example, in the 6LoWPAN implementation BLIP.
 
 In the adaptation layer, IPv6 header compression and data fragmentation will be performed to solve the problem of frame size incompatibility, and along with layer-two forwarding~\texttt{mesh-under}, it would allow IPv6 packets to be transmitted via the 802.15.4 network. The basic 6LoWPAN frame structure is shown in Figure~\ref{fig:Frame}.  
 
@@ -41,7 +41,7 @@ In the adaptation layer, IPv6 header compression and data fragmentation will be 
 \subsection{Header Compression}
 \label{IETF:HC}
 The first scheme performed is IPv6 header compression. The idea is to eliminate the
-header which contains information of the 6LoWPAN network. That is precisely the reason why it was called stateless header compression. There are two compression formats: header compression one (HC1) and header compression two (HC2)\@. HC1 and HC2 are respectively responsible for the IPv6 header and transport protocol header.  First, the HC1 reduces the 40 octets IPv6 overhead into 2 octets (1 octet for the HC1 encoding and 1 octet for the hop limit)\@. The HC2 is then used to compress any overhead brought by transport layer protocols such as, for example, UDP, TCP, or ICMP.
+header which contains information of the 6LoWPAN network. There are two compression formats: header compression one (HC1) and header compression two (HC2)\@. HC1 and HC2 are respectively responsible for the IPv6 header and transport protocol header.  First, the HC1 reduces the 40 octets IPv6 overhead into 2 octets (1 octet for the HC1 encoding and 1 octet for the hop limit)\@. The HC2 is then used to compress any overhead brought by transport layer protocols such as, for example, UDP, TCP, or ICMP.
 
 \subsection{Packet Fragmentation}
 \label{IETF:PF}
@@ -96,7 +96,7 @@ The most basic routing topology RPL forms and maintains is a Destination Oriente
 
 Four types of identifier are used in RPL:
 \begin{itemize}
-\item RPLInstanceID: Identifier of a RPL instance which is define as a set of one or more DODAGs with the same OF.
+\item RPLInstanceID: Identifier of a RPL instance which defined as a set of one or more DODAGs with the same OF.
 
 
 \item DODAGID: unique ID for each DODAG in a RPL instance.
@@ -147,7 +147,7 @@ The triple of RPLInstanceID, DODAGID and RPLVersionNumber uniquely identifies a 
 As the DODAG has two directions - up and down, there are two kinds of routes defined in RPL: upward routes and downward routes. Upward routes are the routes from a child node to a root node. Similarly, downward routes are the routes which are away from the root to a child node. To maintain these routes, five new types of ICMPv6 control messages are used:
 
 \begin{itemize}
-\item DODAG Information Solicitation (DIS): DIS is used by a non-root node to request DODAG information from the neighboring nodes. The neighbors response to a DIS with a DODAG Information Object (DIO) which is the second type of ICMPv6 message used in RPL.
+\item DODAG Information Solicitation (DIS): DIS is used by a non-root node to request DODAG information from the neighboring nodes. The neighbors respond to a DIS with a DODAG Information Object (DIO) which is the second type of ICMPv6 message used in RPL.
 
 \item DODAG Information Object (DIO): Information such as node rank, RPL instance ID, DODAG version number are communicated between nodes within DIO messages. It allows the recipient to join a DODAG and choose its parent set and preferable parent according to the OF, routing metrics and constraints which are carried in a metric container. The sending of DIO can be triggered by both a Trickle timer or receiving a DIS.
 
@@ -190,7 +190,7 @@ The path cost in MRHOF is defined as the quantitated property of an end-to-end p
 
 \section{RPL Control Message Timer - the Trickle Timer}
 \label{Trickle}
-In Section~\ref{RPL:ICMP}, the Trickle timer is mentioned as the control timer for sending DIOs. The Trickle timer uses the Trickle algorithm (\cite{RFC 6206}) to regulate control messages sending. The general idea of the Trickle algorithm is: if a node receives a Trickle message and the information in the message differs from the receiver's state, thus a inconsistency is detected and the Trickle timer will be reset; if the message agrees with the recipient's state, then there is no inconsistency, the Trickle algorithm will slow down the transmission of the Trickle message. The detailed definition for inconsistency is protocol-dependent. With the Trickle algorithm, on one hand, a node can detect the inconsistency efficiently and, on the other hand, when there is no inconsistency, Trickle messages are sent less frequently. It does not only save energy in sensor nodes, but also reduce the traffic load in the network which leads to low channel occupation. 
+In Section~\ref{RPL:ICMP}, the Trickle timer is mentioned as the control timer for sending DIOs. The Trickle timer uses the Trickle algorithm (\cite{RFC 6206}) to regulate control messages sending. The general idea of the Trickle algorithm is: if a node receives a Trickle message and the information in the message differs from the receiver's state, a inconsistency is detected and the Trickle timer will be reset; if the message agrees with the recipient's state, then there is no inconsistency, and the Trickle algorithm will slow down the transmission of the Trickle message. The detailed definition for inconsistency is protocol-dependent. With the Trickle algorithm, a node can detect the inconsistency efficiently and, when there is no inconsistency, the Trickle messages would be sent less frequently. It does not only save energy in sensor nodes, but also reduce traffic load in the network which leads to low channel occupation. 
 
 The Trickle algorithm defines a Trickle interval with a minimum time interval size $Imin$ and a maximum time interval size $Imax$. Additionally, the algorithm uses a positive redundancy constant $k$. Besides the three parameters above, Trickle maintains three variables:
 \begin{itemize}
