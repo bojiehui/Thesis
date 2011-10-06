@@ -9,9 +9,17 @@ Low power consumption and low control message overhead are crucial due to the re
 
 As soon as the nodes boot up, DIOs are sent to help nodes discovering the default routes. The sending of DIO messages is governed by the Trickle timer. Due to the Trickle algorithm, the default route discovery times of the single hop nodes are uniform distributed. For a multi-hop node, the distribution of the default route discovery time is the summation of multiple uniform distributions, thus resulting an normal distribution. By adding the default route discovery time distributions of all the nodes in a network, one can get a CDF of the whole network which shows almost a uniform increase again.
 
+% mab: the above summary is not right. only one hop nodes' detection time
+% is uniformly distributed. nodes further away have almost normally
+% distributed detection times. the full network cdf for bigger
+% scenarios, shows almost a uniform increase again, due to the
+% summation of all the other distriburions.
+
 Objective Functions (OFs) are defined for RPL to meet different optimization requirements. OF0 and MRHOF are two OFs which are implemented in BLIP 2.0. The performances are evaluated in terms of RTT and packet loss with the application \texttt{UDPEcho}. The simulation results show that OF0 has a equally good performance as MRHOF in simple and low density scenarios. For more dense scenarios, OF0 has unstable performances due to the fact that it chooses routes without using link layer information. On the other hand, MRHOF with ETX routing metric has not only less packet loss and lower RTT than OF0 in larger and more complicated topologies, but also a more stable performance.
 
 During the course of simulation several bugs that were present in RPL/OFs and BLIP were fixed and have been applied to the upstream repository.
+% mab: missing: several bugs that were present in RPL/OFs and blip were
+% fixed and have been applied upstream
 
 \section{Outlook}
 \label{outlook}
@@ -26,7 +34,7 @@ During the course of simulation several bugs that were present in RPL/OFs and BL
 
 In the future the complexity of the simulated system can be improved. Whereas only a handful of parameters were studied in this thesis, there are far more routing-related issues facing the LLNs.
  
-First of all, more scenarios can be created to further exam the performance of RPL. An example would be the scenario of uneven internode spacing - what will the performance of RPL be if the neighboring node spacing is not as regular as the the scenarios created in this thesis. Non-equidistant node spacing needs to be included into future simulations. Another improvement that can be made is to simulate with the real-world noise trace and path attenuation which will increase the fidelity of the simulation. 
+First of all, more scenarios can be created to further exam the performance of RPL. An example would be the scenario of uneven inter-node spacing - what will the performance of RPL be if the neighboring node spacing is not as regular as the the scenarios created in this thesis. Non-equidistant node spacing needs to be included into future simulations. Another improvement that can be made is to simulate with the real-world noise trace and path attenuation which will increase the fidelity of the simulation. 
 
 Addition to scenario, more metrics can be used to evaluate the performance of RPL. RPL employs two DODAG repair mechanisms - gloable repair which will increase the DODAG version number and local repair which repairs  a local DODAG within the DODAG version number. Link failures can be added to the simulation to exam the behavior of both repair mechanisms.
 

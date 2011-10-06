@@ -51,7 +51,7 @@ The simulation is done for various scenarios with different number of nodes, as 
 \subsection{Simulation Scenarios}
 \label{Sim:Scenarios}
 
-Two kinds of scenarios are created for the simulation - a line scenario and a grid scenario. In the line scenario the neighboring nodes are equally distanced; in the grid scenario, the number of nodes should be a square number, and the grids are square grids. Figure~\ref{fig:scenario_line} shows a 4-node line scenario with 10-meter internode distance. A 9-node grid scenario with 100-meter internode distance is shown in Figure~\ref{fig:scenario_grid}. Node 1 is configured to be the root node in the simulation.
+Two kinds of scenarios are created for the simulation - a line scenario and a grid scenario. In the line scenario the neighboring nodes are equally distanced; in the grid scenario, the number of nodes should be a square number, and the grids are square grids. Figure~\ref{fig:scenario_line} shows a 4-node line scenario with 10-meter inter-node distance. A 9-node grid scenario with 100-meter inter-node distance is shown in Figure~\ref{fig:scenario_grid}. Node 1 is configured to be the root node in the simulation.
 
 \begin{figure}[htpb]
  % \begin{center}
@@ -83,7 +83,7 @@ with
 \[
 SNR = Signal\:(dBm)- Noise\:(dBm) = -(50 + 20 {\log}(Distance)) - (-98)\:(dBm)
 \] 
-The relationship between distance and PRR is shown in Figure~\ref{fig:prr}. When the distance between two nodes is smaller than 120 m, they can hear each other with a PRR value larger than 0.99. Once the distance is larger than 120 m, the PRR begins to decline until it reaches a value of zero at a distance of 165 m. This means that at a distance of over 165 m two nodes are at least two hops apart.
+The relationship between distance and PRR is shown in Figure~\ref{fig:prr}. When the distance between two nodes is smaller than 120~m, they can hear each other with a PRR value larger than 0.99. Once the distance is larger than 120~m, the PRR begins to decline until it reaches a value of zero at a distance of 165~m.  This means that at a distance of over 165~m two nodes are at least two hops apart.
 
 \begin{figure}[htbp]
   \begin{center}

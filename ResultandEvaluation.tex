@@ -17,33 +17,36 @@ In Figure~\ref{fig:dist10_montecarlo_cdf_hist}, the inter-node distance is only 
     \leavevmode
       \includegraphics[scale=0.38]
       {Pics/results/4/MRHOF/line/dist10_montecarlo_cdf_hist.pdf}
-   \caption{CDF of default route discovery time: 4 nodes line scenario with 10 m inter-node distance}
+   \caption{CDF of default route discovery time: 4 nodes line scenario with 10~m inter-node distance}
     \label{fig:dist10_montecarlo_cdf_hist}
   \end{center}
 \end{figure}
 
 
-In the case of Figure~\ref{fig:dist50_montecarlo_cdf_hist}, the distance between the root node and node 4 (the furthest node from the root) is 150 m which corresponds to a 39\% PRR. Therefore node 4 may be two hops away from the root. It is shown in Figure~\ref{fig:dist50_montecarlo_cdf_hist}, the linearity only goes up to around 70\%, and the CDF curve after that corresponds to the addition of two uniformly distributed random variables.
+In the case of Figure~\ref{fig:dist50_montecarlo_cdf_hist}, the distance between the root node and node 4 (the furthest node from the root) is 150~m which corresponds to a 39\% PRR. Therefore node 4 may be two hops away from the root. It is shown in Figure~\ref{fig:dist50_montecarlo_cdf_hist}, the linearity only goes up to around 70\%, and the CDF curve after that corresponds to the addition of two uniformly distributed random variables.
 
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
       \includegraphics[scale=0.38]
       {Pics/results/4/MRHOF/line/dist50_montecarlo_cdf_hist.pdf}
-   \caption{CDF of default route discovery time: 4 nodes line scenario with 50 m inter-node distance}
+   \caption{CDF of default route discovery time: 4 nodes line scenario with 50~m inter-node distance}
     \label{fig:dist50_montecarlo_cdf_hist}
   \end{center}
    \vspace{-20pt}
 \end{figure}
 
-The effect can be more precisely observed in Figure~\ref{fig:dist100_montecarlo_cdf_hist} where node 2 is one hop away from the root, node 3 is two hops away and node 4 is three hops away. The corresponding range of default route detection time for node 2, 3 and 4 are $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$ respectively. Accordingly Figure~\ref{fig:dist100_montecarlo_cdf_hist} shows 3 phases in the CDF curve. The first phase (Time-axis from 128 ms to 256 ms) is linear. It demonstrates the CDF of the uniformly distributed default route detection time for node 2. The second phase starts from 128 ms to 384 ms. The CDF of this phase corresponds to a triangle PDF which is the convolution of two uniform distributions PDFs. From 384 ms to 768 ms, a third uniform distribution is added. The CDF of this phase corresponds to an approximately bell shaped PDF.
+The effect can be more precisely observed in Figure~\ref{fig:dist100_montecarlo_cdf_hist} where node 2 is one hop away from the root, node 3 is two hops away and node 4 is three hops away. The corresponding range of default route detection time for node 2, 3 and 4 are $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$ respectively. Accordingly Figure~\ref{fig:dist100_montecarlo_cdf_hist} shows 3 phases in the CDF curve. The first phase (Time-axis from 128~ms to 256~ms) is linear. It demonstrates the CDF of the uniformly distributed default route detection time for node 2. The second phase starts from 128~ms to 384~ms. The CDF of this phase corresponds to a triangle PDF which is the convolution of two uniform distributions PDFs. From 384~ms to 768~ms, a third uniform distribution is added. The CDF of this phase corresponds to an approximately bell shaped PDF.
+
+% mab: $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$
+% those values are not right! check them again!
 
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
       \includegraphics[scale=0.38]
       {Pics/results/4/MRHOF/line/dist100_montecarlo_cdf_hist.pdf}
-   \caption{CDF of default route discovery time: 4 nodes line scenario with 100 m inter-node distance}
+   \caption{CDF of default route discovery time: 4 nodes line scenario with 100~m inter-node distance}
     \label{fig:dist100_montecarlo_cdf_hist}
   \end{center}
    \vspace{-20pt}
@@ -72,9 +75,11 @@ The 95th percentiles of default route detection time for line scenario and grid 
 
 The CDF histograms of default route discovery time for 9- and 16-node scenario setups can be found in Appendix~\ref{Appx:cdf}. 
 
+% mab: Discussion of the table is missing!
+
 \section{Control Message Overhead}
 \label{ICMP}
-The main advantage of using the Trickle algorithm is that it reduces the amount of control messages. In this section the control message (DIS, DIO and DAO) overhead in two 10-minute time intervals will be presented. The first 10-minute interval is taken right after all nodes are booted up. The second 10 minutes is from the 11th minute to the 20th. Since \texttt{UDPEcho} is configured to send messages with a period of 2 s, the simulation for the 4-node topology will only last for 600 ms. Hence the control message overhead of the second interval will not be evaluated for the 4-node scenario.
+The main advantage of using the Trickle algorithm is that it reduces the amount of control messages. In this section the control message (DIS, DIO and DAO) overhead in two 10-minute time intervals will be presented. The first 10-minute interval is taken right after all nodes are booted up. The second 10 minutes is from the 11th minute to the 20th. Since \texttt{UDPEcho} is configured to send messages with a period of 2 s, the simulation for the 4-node topology will only last for 600~ms.  Hence the control message overhead of the second interval will not be evaluated for the 4-node scenario.
 
 Figure~\ref{fig:9_MRHOF_line_10_icmp} to Figure~\ref{fig:9_MRHOF_line_100_icmp} show the control message overhead  of the 9-node line scenario. One common thing that can be observed in these figures is, that node 1 always sends the least ICMP messages. It is because as root, node 1 does not sent any DIS and DAO messages. It only sends DIO messages.
 
@@ -87,7 +92,7 @@ In Figure~\ref{fig:9_MRHOF_line_10_icmp0}, the control message overhead is equal
       \includegraphics[trim=2cm 0cm 3cm 0cm, clip=true, scale=0.38] {Pics/results/9/MRHOF/line/dist10_montecarlo_contour_sent_ICMP_0.pdf}}
     \subfloat[Second 10 minutes]{\label{fig:9_MRHOF_line_10_icmp1}
        \includegraphics[trim=2cm 0cm 3cm 0cm, clip=true, scale=0.38] {Pics/results/9/MRHOF/line/dist10_montecarlo_contour_sent_ICMP_1.pdf}}
-    \caption{Control message overhead: 9-node line scenario with 10 m inter-node distance}
+    \caption{Control message overhead: 9-node line scenario with 10~m inter-node distance}
     \label{fig:9_MRHOF_line_10_icmp}
   \end{center}
    \vspace{-20pt}
@@ -100,7 +105,7 @@ In Figure~\ref{fig:9_MRHOF_line_10_icmp0}, the control message overhead is equal
       \includegraphics[trim=2cm 0cm 3cm 0cm, clip=true, scale=0.38]  {Pics/results/9/MRHOF/line/dist50_montecarlo_contour_sent_ICMP_0.pdf}}
     \subfloat[Second 10 minutes]{\label{fig:9_MRHOF_line_50_icmp1}
        \includegraphics[trim=2cm 0cm 3cm 0cm, clip=true, scale=0.38]  {Pics/results/9/MRHOF/line/dist50_montecarlo_contour_sent_ICMP_1.pdf}}
-    \caption{Control message overhead: 9-node line scenario with 50 m inter-node distance}
+    \caption{Control message overhead: 9-node line scenario with 50~m inter-node distance}
     \label{fig:9_MRHOF_line_50_icmp}
   \end{center}
     \vspace{-20pt}
@@ -113,7 +118,7 @@ In Figure~\ref{fig:9_MRHOF_line_10_icmp0}, the control message overhead is equal
       \includegraphics[trim=2cm 0cm 3cm 0cm, clip=true, scale=0.38] {Pics/results/9/MRHOF/line/dist100_montecarlo_contour_sent_ICMP_0}}
     \subfloat[Second 10 minutes]{\label{fig:9_MRHOF_line_100_icmp1}
        \includegraphics[trim=2cm 0cm 3cm 0cm, clip=true, scale=0.38] {Pics/results/9/MRHOF/line/dist100_montecarlo_contour_sent_ICMP_1}}
-    \caption{Control message overhead: 9-node line scenario with 100 m inter-node distance}
+    \caption{Control message overhead: 9-node line scenario with 100~m inter-node distance}
     \label{fig:9_MRHOF_line_100_icmp}
   \end{center}
    \vspace{-20pt}
@@ -132,7 +137,7 @@ In the simulation a packet is considered to be lost when the echo packet is not 
 \subsection{Line Scenario}
 \label{pl:line}
 
-Figure~\ref{fig:pl_4_line_10} to Figure~\ref{fig:pl_4_line_100} show the mean packet loss rates for the 4-node line scenario with inter-node distances of 10, 50 or 100 m. The figures on the left show the results using OF0, and the right ones are the results using MRHOF. In Figure~\ref{fig:pl_9_line_10} to Figure~\ref{fig:pl_16_line_100}, the mean packet loss rates are presented in the same way for the 6- and 9-node line scenarios.
+Figure~\ref{fig:pl_4_line_10} to Figure~\ref{fig:pl_4_line_100} show the mean packet loss rates for the 4-node line scenario with inter-node distances of 10, 50 or 100~m. The figures on the left show the results using OF0, and the right ones are the results using MRHOF. In Figure~\ref{fig:pl_9_line_10} to Figure~\ref{fig:pl_16_line_100}, the mean packet loss rates are presented in the same way for the 6- and 9-node line scenarios.
 
 For the 4-node and 9-node line scenarios, the packet loss under the same setup shows no difference between OF0 and MRHOF. When the node number increases to 16, simulation with OF0 starts to exhibit a higher packet loss than MRHOF. In the 50 meters inter-node distance case (Figure~\ref{fig:16/OF0/line/dist50_montecarlo_contour_packetloss}), one can see a mean packet loss rate higher than 15\% for the most distant nodes. This result is caused by broken routes caused by low PRR and interferences between the root and the nodes in one or more runs out of the 100 runs. For most runs the loss rates are low. When the inter-node distance is increased to 100 meters, OF0 again presents a good case in terms of packet loss rate (Figure~\ref{fig:16/OF0/line/dist100_montecarlo_contour_packetloss}). Meanwhile, MRHOF continues to show stable results over all runs.
 %\clearpage
@@ -143,7 +148,7 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/line/dist10_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:4/MRHOF/line/dist10_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/line/dist10_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 4-node line scenario with 10 m inter-node distance}
+   \caption{Mean packet loss rate: 4-node line scenario with 10~m inter-node distance}
    \label{fig:pl_4_line_10}
    \vspace{-20pt}
 \end{figure}
@@ -155,7 +160,7 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/4/OF0/line/dist50_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:4/MRHOF/line/dist50_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/line/dist50_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 4-node line scenario with 50 m inter-node distance}
+   \caption{Mean packet loss rate: 4-node line scenario with 50~m inter-node distance}
    \label{fig:pl_4_line_50}
    \vspace{-20pt}
 \end{figure}
@@ -167,7 +172,7 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/line/dist100_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:4/MRHOF/line/dist100_montecarlo_contour_packetloss}
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/line/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean packet loss rate: 4-node line scenario with 100 m inter-node distance}
+  \caption{Mean packet loss rate: 4-node line scenario with 100~m inter-node distance}
   \label{fig:pl_4_line_100}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% line 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -178,7 +183,7 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/line/dist10_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:9/MRHOF/line/dist10_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/line/dist10_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 9-node line scenario with 10 m inter-node distance}
+   \caption{Mean packet loss rate: 9-node line scenario with 10~m inter-node distance}
    \label{fig:pl_9_line_10}
     \vspace{-20pt}
 \end{figure}
@@ -190,7 +195,7 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/9/OF0/line/dist50_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:9/MRHOF/line/dist50_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/line/dist50_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 9-node line scenario with 50 m inter-node distance}
+   \caption{Mean packet loss rate: 9-node line scenario with 50~m inter-node distance}
    \label{fig:pl_9_line_50}
     \vspace{-20pt}
 \end{figure}
@@ -202,7 +207,7 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/line/dist100_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:9/MRHOF/line/dist100_montecarlo_contour_packetloss}
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/line/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean packet loss rate: 9-node line scenario with 100 m inter-node distance}
+  \caption{Mean packet loss rate: 9-node line scenario with 100~m inter-node distance}
   \label{fig:pl_9_line_100}
    \vspace{-20pt}
 \end{figure}
@@ -216,7 +221,7 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/line/dist10_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:16/MRHOF/line/dist10_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/line/dist10_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 16-node line scenario with 10 m inter-node distance}
+   \caption{Mean packet loss rate: 16-node line scenario with 10~m inter-node distance}
    \label{fig:pl_16_line_10}
     \vspace{-20pt}
 \end{figure}
@@ -228,7 +233,7 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/16/OF0/line/dist50_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:16/MRHOF/line/dist50_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/line/dist50_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 16-node line scenario with 50 m inter-node distance}
+   \caption{Mean packet loss rate: 16-node line scenario with 50~m inter-node distance}
    \label{fig:pl_16_line_50}
     \vspace{-20pt}
 \end{figure}
@@ -240,7 +245,7 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/line/dist100_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:16/MRHOF/line/dist100_montecarlo_contour_packetloss}
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/line/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean packet loss rate: 16-node line scenario with 100 m inter-node distance}
+  \caption{Mean packet loss rate: 16-node line scenario with 100~m inter-node distance}
   \label{fig:pl_16_line_100}
    \vspace{-20pt}
 \end{figure}
@@ -262,7 +267,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/grid/dist10_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist10_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist10_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 4-node grid scenario with 10 m inter-node distance}
+   \caption{Mean packet loss rate: 4-node grid scenario with 10~m inter-node distance}
    \label{fig:pl_4_grid_10}
     \vspace{-20pt}
 \end{figure}
@@ -274,7 +279,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/4/OF0/grid/dist50_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist50_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist50_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 4-node grid scenario with 50 m inter-node distance}
+   \caption{Mean packet loss rate: 4-node grid scenario with 50~m inter-node distance}
    \label{fig:pl_4_grid_50}
     \vspace{-20pt}
 \end{figure}
@@ -286,7 +291,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/grid/dist100_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist100_montecarlo_contour_packetloss}
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean packet loss rate: 4-node grid scenario with 100 m inter-node distance}
+  \caption{Mean packet loss rate: 4-node grid scenario with 100~m inter-node distance}
   \label{fig:pl_4_grid_100}
    \vspace{-20pt}
 \end{figure}
@@ -300,7 +305,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/grid/dist10_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist10_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist10_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 9-node grid scenario with 10 m inter-node distance}
+   \caption{Mean packet loss rate: 9-node grid scenario with 10~m inter-node distance}
    \label{fig:pl_9_grid_10}
     \vspace{-20pt}
 \end{figure}
@@ -312,7 +317,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/9/OF0/grid/dist50_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist50_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist50_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 9-node grid scenario with 50 m inter-node distance}
+   \caption{Mean packet loss rate: 9-node grid scenario with 50~m inter-node distance}
    \label{fig:pl_9_grid_50}
     \vspace{-20pt}
 \end{figure}
@@ -324,7 +329,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/grid/dist100_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist100_montecarlo_contour_packetloss}
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean packet loss rate: 9-node grid scenario with 100 m inter-node distance}
+  \caption{Mean packet loss rate: 9-node grid scenario with 100~m inter-node distance}
   \label{fig:pl_9_grid_100}
    \vspace{-20pt}
 \end{figure}
@@ -338,7 +343,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist10_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist10_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist10_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 16-node grid scenario with 10 m inter-node distance}
+   \caption{Mean packet loss rate: 16-node grid scenario with 10~m inter-node distance}
    \label{fig:pl_16_grid_10}
     \vspace{-20pt}
 \end{figure}
@@ -350,7 +355,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/16/OF0/grid/dist50_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist50_montecarlo_contour_packetloss}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist50_montecarlo_contour_packetloss.pdf}}
-   \caption{Mean packet loss rate: 16-node grid scenario with 50 m inter-node distance}
+   \caption{Mean packet loss rate: 16-node grid scenario with 50~m inter-node distance}
    \label{fig:pl_16_grid_50}
     \vspace{-20pt}
 \end{figure}
@@ -362,7 +367,7 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist100_montecarlo_contour_packetloss.pdf}}
     \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist100_montecarlo_contour_packetloss}
      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist100_montecarlo_contour_packetloss.pdf}}
-  \caption{Mean packet loss rate: 16-node grid scenario with 100 m inter-node distance}
+  \caption{Mean packet loss rate: 16-node grid scenario with 100~m inter-node distance}
   \label{fig:pl_16_grid_100}
    \vspace{6in}
 \end{figure}
@@ -376,9 +381,9 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
 
 The mean RTT for various node numbers and inter-node distances of the line scenario is shown in Figure~\ref{fig:rtt_4_line_10} to Figure~\ref{fig:rtt_16_line_100}. Again, the left side figures show the mean RTT results with OF0, and the right ones show the results for MRHOF.
 
-Due to the PRR drops as the inter-node distance increases, the link quality between two nodes becomes bad, and packets cannot reach the destination within one hop. Therefore RPL forms routes for multi-hop delivery. This multi-hop delivery can be clearly seen by comparing the results of the 9-node line scenario. When the inter-node distance is 10 m (Figure~\ref{fig:9/OF0/line/dist10_montecarlo_contour}), node 9 is one hop away from the root, and has a mean RTT of 11 ms. When the inter-node distance increases to 50 m (Figure~\ref{fig:9/OF0/line/dist50_montecarlo_contour}), node 9 is at least three hops away from the root, and has a mean RTT of 56 ms. When the inter-node distance continues to increase to 100 m, node 9 becomes eight hops away, and the mean RTT for node 9 becomes 101 ms. The phenomenon of increasing mean RTT with distance can be observed in the 4- and 16-node scenarios as well. For the line scenario, there is no apparent difference between OF0 and MRHOF in terms of increasement of mean RTT over inter-node distance. For both OFs under the same scenario setup, the mean RTT of the first hop is typically 11 ms, and each additional hop adds approximately 13 ms to it.
+Due to the PRR drops as the inter-node distance increases, the link quality between two nodes becomes bad, and packets cannot reach the destination within one hop. Therefore RPL forms routes for multi-hop delivery. This multi-hop delivery can be clearly seen by comparing the results of the 9-node line scenario. When the inter-node distance is 10~m (Figure~\ref{fig:9/OF0/line/dist10_montecarlo_contour}), node 9 is one hop away from the root, and has a mean RTT of 11~ms.  When the inter-node distance increases to 50~m (Figure~\ref{fig:9/OF0/line/dist50_montecarlo_contour}), node 9 is at least three hops away from the root, and has a mean RTT of 56~ms.  When the inter-node distance continues to increase to 100~m, node 9 becomes eight hops away, and the mean RTT for node 9 becomes 101~ms.  The phenomenon of increasing mean RTT with distance can be observed in the 4- and 16-node scenarios as well. For the line scenario, there is no apparent difference between OF0 and MRHOF in terms of increasement of mean RTT over inter-node distance. For both OFs under the same scenario setup, the mean RTT of the first hop is typically 11 ms, and each additional hop adds approximately 13~ms to it.
 
-Similar to the mean packet loss rate results, the mean RTT performances of OF0 and MRHOF are different for the 16-node topology. In Figure~\ref{fig:16/OF0/line/dist50_montecarlo_contour} due to bad routes between the root and the most distant nodes, the mean RTT becomes higher than 250 ms while MRHOF keeps a mean RTT within 150 ms even for the furthest node.
+Similar to the mean packet loss rate results, the mean RTT performances of OF0 and MRHOF are different for the 16-node topology. In Figure~\ref{fig:16/OF0/line/dist50_montecarlo_contour} due to bad routes between the root and the most distant nodes, the mean RTT becomes higher than 250~ms while MRHOF keeps a mean RTT within 150~ms even for the furthest node.
 
 \begin{figure}[p]
   \centering
@@ -387,7 +392,7 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/line/dist10_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:4/MRHOF/line/dist10_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/line/dist10_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 4-node line scenario with 10 m inter-node distance}
+  \caption{Mean RTT: 4-node line scenario with 10~m inter-node distance}
  \label{fig:rtt_4_line_10}
 \end{figure}
 
@@ -398,7 +403,7 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/line/dist50_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:4/MRHOF/line/dist50_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/line/dist50_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 4-node line scenario with 50 m inter-node distance}
+  \caption{Mean RTT: 4-node line scenario with 50~m inter-node distance}
  \label{fig:rtt_4_line_50}
 \end{figure}
 
@@ -409,7 +414,7 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/line/dist100_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:4/MRHOF/line/dist100_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/line/dist100_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 4-node line scenario with 100 m inter-node distance}
+  \caption{Mean RTT: 4-node line scenario with 100~m inter-node distance}
  \label{fig:rtt_4_line_100}
 \end{figure}
 
@@ -422,7 +427,7 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/line/dist10_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:9/MRHOF/line/dist10_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]     {Pics/results/9/MRHOF/line/dist10_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 9-node line scenario with 10 m inter-node distance}
+  \caption{Mean RTT: 9-node line scenario with 10~m inter-node distance}
  \label{fig:rtt_9_line_10}
 \end{figure}
 
@@ -433,7 +438,7 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/line/dist50_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:9/MRHOF/line/dist50_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/line/dist50_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 9-node line scenario with 50 m inter-node distance}
+  \caption{Mean RTT: 9-node line scenario with 50~m inter-node distance}
  \label{fig:rtt_9_line_50}
 \end{figure}
 
@@ -444,7 +449,7 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/line/dist100_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:9/MRHOF/line/dist100_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/line/dist100_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 9-node line scenario with 100 m inter-node distance}
+  \caption{Mean RTT: 9-node line scenario with 100~m inter-node distance}
  \label{fig:rtt__line_100}
 \end{figure}
 
@@ -457,7 +462,7 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/line/dist10_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:16/MRHOF/line/dist10_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/line/dist10_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 16-node line scenario with 10 m inter-node distance}
+  \caption{Mean RTT: 16-node line scenario with 10~m inter-node distance}
  \label{fig:rtt_16_line_10}
 \end{figure}
 
@@ -468,7 +473,7 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/line/dist50_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:16/MRHOF/line/dist50_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/line/dist50_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 16-node line scenario with 50 m inter-node distance}
+  \caption{Mean RTT: 16-node line scenario with 50~m inter-node distance}
  \label{fig:rtt_16_line_50}
 \end{figure}
 
@@ -479,7 +484,7 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38] {Pics/results/16/OF0/line/dist100_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:16/MRHOF/line/dist100_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/line/dist100_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 16-node line scenario with 100 m inter-node distance}
+  \caption{Mean RTT: 16-node line scenario with 100~m inter-node distance}
  \label{fig:rtt_16_line_100}
 \end{figure}
 
@@ -488,9 +493,9 @@ Similar to the mean packet loss rate results, the mean RTT performances of OF0 a
 \subsection{Grid Scenario}
 \label{rtt:grid}
 
-Figure~\ref{fig:rtt_4_grid_10} to Figure~\ref{fig:rtt_16_grid_100} illustrate the mean RTT results of the grid scenario simulations. The phenomenon of increasing mean RTT with inter-node distance (mentioned in Section \ref{rtt:line}) can be observed here again. In Figure~\ref{fig:4/OF0/grid/dist50_montecarlo_contour} and Figure~\ref{fig:4/OF0/grid/dist100_montecarlo_contour}, one can see the mean RTT increasement with distance of a 4-node grid scenario using OF0. The mean RTT for node 4 increases from  10.7 ms to 73.8 ms while the inter-node distance increases from 50 m to 100 m. Similarly, in Figure~\ref{fig:4/MRHOF/grid/dist50_montecarlo_contour} and Figure~\ref{fig:4/MRHOF/grid/dist100_montecarlo_contour}, by using MRHOF the mean RTT for node 4 increases from  11.1 ms to 69.4 ms while the inter-node distance increases from 50 m to 100 m.
+Figure~\ref{fig:rtt_4_grid_10} to Figure~\ref{fig:rtt_16_grid_100} illustrate the mean RTT results of the grid scenario simulations. The phenomenon of increasing mean RTT with inter-node distance (mentioned in Section \ref{rtt:line}) can be observed here again. In Figure~\ref{fig:4/OF0/grid/dist50_montecarlo_contour} and Figure~\ref{fig:4/OF0/grid/dist100_montecarlo_contour}, one can see the mean RTT increasement with distance of a 4-node grid scenario using OF0. The mean RTT for node 4 increases from  10.7~ms to 73.8~ms while the inter-node distance increases from 50~m to 100~m. Similarly, in Figure~\ref{fig:4/MRHOF/grid/dist50_montecarlo_contour} and Figure~\ref{fig:4/MRHOF/grid/dist100_montecarlo_contour}, by using MRHOF the mean RTT for node 4 increases from  11.1~ms to 69.4~ms while the inter-node distance increases from 50~m to 100~m.
 
-When the node number increases, the difference between OF0 and MRHOF in terms of mean RTT increasement over distance grows bigger. For the 9-node grid scenario with OF0, the mean RTT of node 9 increases from 72.5 ms (inter-node distance 50 m, Figure~\ref{fig:9/OF0/grid/dist50_montecarlo_contour}) to 142.1 ms (inter-node distance 100 m, Figure~\ref{fig:9/OF0/grid/dist100_montecarlo_contour}) while with MRHOF it increases from 68.2 ms (inter-node distance 50 m, Figure~\ref{fig:9/MRHOF/grid/dist50_montecarlo_contour}) to 79.9 ms (inter-node distance 100 m, Figure~\ref{fig:9/MRHOF/grid/dist100_montecarlo_contour}). For the 16-node grid scenario using OF0, the mean RTT of node 16 increases from 35.1 ms (inter-node distance 50 m, Figure~\ref{fig:16/OF0/grid/dist50_montecarlo_contour}) to infinite (inter-node distance 100 m, Figure~\ref{fig:9/OF0/grid/dist100_montecarlo_contour}) due to bad route between the root and node 16 in one or more runs. On the other hand, with MRHOF the mean RTT of node 16 grows from 50.8 ms (inter-node distance 50 m, Figure~\ref{fig:16/MRHOF/grid/dist50_montecarlo_contour}) to 116.0 ms (inter-node distance 100 m, Figure~\ref{fig:16/MRHOF/grid/dist100_montecarlo_contour}). Moreover, in Figure~\ref{fig:16/OF0/grid/dist50_montecarlo_contour} and Figure~\ref{fig:16/OF0/grid/dist100_montecarlo_contour}, one can see the instances of broken routes between the root and the nodes happened again for the 16-node grid scenario with 50 or 100 m inter-node distance.
+When the node number increases, the difference between OF0 and MRHOF in terms of mean RTT increasement over distance grows bigger. For the 9-node grid scenario with OF0, the mean RTT of node 9 increases from 72.5~ms (inter-node distance 50~m, Figure~\ref{fig:9/OF0/grid/dist50_montecarlo_contour}) to 142.1~ms (inter-node distance 100~m, Figure~\ref{fig:9/OF0/grid/dist100_montecarlo_contour}) while with MRHOF it increases from 68.2~ms (inter-node distance 50~m, Figure~\ref{fig:9/MRHOF/grid/dist50_montecarlo_contour}) to 79.9~ms (inter-node distance 100~m, Figure~\ref{fig:9/MRHOF/grid/dist100_montecarlo_contour}). For the 16-node grid scenario using OF0, the mean RTT of node 16 increases from 35.1~ms (inter-node distance 50~m, Figure~\ref{fig:16/OF0/grid/dist50_montecarlo_contour}) to infinite (inter-node distance 100~m, Figure~\ref{fig:9/OF0/grid/dist100_montecarlo_contour}) due to bad route between the root and node 16 in one or more runs. On the other hand, with MRHOF the mean RTT of node 16 grows from 50.8~ms (inter-node distance 50~m, Figure~\ref{fig:16/MRHOF/grid/dist50_montecarlo_contour}) to 116.0~ms (inter-node distance 100~m, Figure~\ref{fig:16/MRHOF/grid/dist100_montecarlo_contour}). Moreover, in Figure~\ref{fig:16/OF0/grid/dist50_montecarlo_contour} and Figure~\ref{fig:16/OF0/grid/dist100_montecarlo_contour}, one can see the instances of broken routes between the root and the nodes happened again for the 16-node grid scenario with 50 or 100~m inter-node distance.
 
 By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of mean RTT MRHOF has a better performance than OF0 for the nodes which are more than one hop away.
 
@@ -503,7 +508,7 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/grid/dist10_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist10_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist10_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 4-node grid scenario with 10 m inter-node distance}
+  \caption{Mean RTT: 4-node grid scenario with 10~m inter-node distance}
  \label{fig:rtt_4_grid_10}
 \end{figure}
 
@@ -514,7 +519,7 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/grid/dist50_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist50_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist50_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 4-node grid scenario with 50 m inter-node distance}
+  \caption{Mean RTT: 4-node grid scenario with 50~m inter-node distance}
  \label{fig:rtt_4_grid_50}
 \end{figure}
 
@@ -527,7 +532,7 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
      \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist100_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]
       {Pics/results/4/MRHOF/grid/dist100_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 4-node grid scenario with 100 m inter-node distance}
+  \caption{Mean RTT: 4-node grid scenario with 100~m inter-node distance}
  \label{fig:rtt_4_grid_100}
 \end{figure}
 
@@ -542,7 +547,7 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
      \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist10_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]
       {Pics/results/9/MRHOF/grid/dist10_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 9-node grid scenario with 10 m inter-node distance}
+  \caption{Mean RTT: 9-node grid scenario with 10~m inter-node distance}
  \label{fig:rtt_9_grid_10}
 \end{figure}
 
@@ -553,7 +558,7 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/grid/dist50_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist50_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist50_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 9-node grid scenario with 50 m inter-node distance}
+  \caption{Mean RTT: 9-node grid scenario with 50~m inter-node distance}
  \label{fig:rtt_9_grid_50}
 \end{figure}
 
@@ -564,7 +569,7 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/grid/dist100_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist100_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist100_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 9-node grid scenario with 100 m inter-node distance}
+  \caption{Mean RTT: 9-node grid scenario with 100~m inter-node distance}
  \label{fig:rtt__grid_100}
 \end{figure}
 
@@ -577,7 +582,7 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist10_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist10_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist10_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 16-node grid scenario with 10 m inter-node distance}
+  \caption{Mean RTT: 16-node grid scenario with 10~m inter-node distance}
  \label{fig:rtt_16_grid_10}
 \end{figure}
 
@@ -588,7 +593,7 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist50_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist50_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist50_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 16-node grid scenario with 50 m inter-node distance}
+  \caption{Mean RTT: 16-node grid scenario with 50~m inter-node distance}
  \label{fig:rtt_16_grid_50}
 \end{figure}
 
@@ -599,7 +604,7 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist100_montecarlo_contour.pdf}}
      \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist100_montecarlo_contour}
       \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist100_montecarlo_contour.pdf}}
-  \caption{Mean RTT: 16-node grid scenario with 100 m inter-node distance}
+  \caption{Mean RTT: 16-node grid scenario with 100~m inter-node distance}
  \label{fig:rtt_16_grid_100}
   \vspace{6in}
 \end{figure}
