@@ -4,9 +4,9 @@ The constraints presented in Section~\ref{General:WSN} and the difficulties in c
 
 \section{Adaptation Layer: 6LoWPAN}
 \label{Intr:6LoWPAN}
-The IETF introduced an IPv6 over Low power Wireless Personal Area Networks (6LoWPAN) model, which allows for IPv6 packets to be transmitted or received by the IEEE 802.15.4 network. The detailed specification can be found in \cite{RFC 4944}.
+The IETF introduced an IPv6 over Low power Wireless Personal Area Networks (6LoWPAN) model, which allows for IPv6 packets to be transmitted or received by the IEEE 802.15.4 network. The detailed specification can be found in~\cite{RFC 4944}.
 
-Instead of the traditional IP based model, a 6LoWPAN protocol stack adds the 6LoWPAN adaptation layer under the IP network layer. Figure \ref{fig:node stack} shows the protocol stacks of a typical 6LoWPAN node and the protocol stack for the 6LBR is shown in Figure~\ref{fig:6LBR stack}.
+Instead of the traditional IP based model, a 6LoWPAN protocol stack adds the 6LoWPAN adaptation layer under the IP network layer. Figure~\ref{fig:node stack} shows the protocol stacks of a typical 6LoWPAN node and the protocol stack for the 6LBR is shown in Figure~\ref{fig:6LBR stack}.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -102,7 +102,7 @@ Four types of identifier are used in RPL:
 \item DODAGID: unique ID for each DODAG in a RPL instance.
 
 
-\item DODAGVersionNumber: ID for each version of a constructed DODAG. Figure \ref{fig:DODAGVersion} shows an example of a DODAG version change.
+\item DODAGVersionNumber: ID for each version of a constructed DODAG. Figure~\ref{fig:DODAGVersion} shows an example of a DODAG version change.
 
 \item Rank: a scalar representation of the relative node position with respect to the DODAG root in a DODAG version. 
 The rank of a DODAG parent should be lower than that of a child. Rank helps RPL nodes to detect loops and verify forward progression toward the destination. An simple example is shown in Figure~\ref{fig:Rank}.
@@ -128,7 +128,7 @@ The rank of a DODAG parent should be lower than that of a child. Rank helps RPL 
 \end{figure}
 \index{figure 3.7}
 
-The pair of RPLInstanceID and DODAGID defines a unique DODAG, Figure \ref{fig:InstanceID} illustrates the relationship between RPL instance and DODAGs. 
+The pair of RPLInstanceID and DODAGID defines a unique DODAG, Figure~\ref{fig:InstanceID} illustrates the relationship between RPL instance and DODAGs. 
 The triple of RPLInstanceID, DODAGID and RPLVersionNumber uniquely identifies a DODAG version.
 
 \begin{figure}[htbp]
@@ -176,17 +176,17 @@ Figure~\ref{fig:DIS/DIO/DAO} shows the basic DIS-DIO and DAO message exchanges. 
 
 \subsection{RPL Objective Function}
 \label{RPL:OF}
-An Objective Function (OF) in RPL is the function which governs route selection. It does so by using a number of metrics which describe a link or a node. These metrics are advertised in DIO messages using a Metric Container option. An OF uses these metrics to calculate rank, choose parents and therefore choose routes \cite{MRHOF}. The actual algorithms for rank calculation parent choosing are implementation-dependent.
+An Objective Function (OF) in RPL is the function which governs route selection. It does so by using a number of metrics which describe a link or a node. These metrics are advertised in DIO messages using a Metric Container option. An OF uses these metrics to calculate rank, choose parents and therefore choose routes~\cite{MRHOF}. The actual algorithms for rank calculation parent choosing are implementation-dependent.
 
 \subsubsection{Objective Function Zero}
 \label{RPL:OF0}
-The Objective Function Zero (OF0) is a very basic type of OF defined in \cite{draft-ietf-roll-of0-20}. There is no guarantee that the chosen route is the result of applying a specific metric. Currently 0F0 is the default OF in RPL.
+The Objective Function Zero (OF0) is a very basic type of OF defined in~\cite{draft-ietf-roll-of0-20}. There is no guarantee that the chosen route is the result of applying a specific metric. Currently 0F0 is the default OF in RPL.
  
 \subsubsection{The Minimum Rank Objective Function with Hysteresis}
 \label{RPL:MRHOF}
-The Minimum Rank Objective Function with Hysteresis (MRHOF)\@, is designed to find the paths with the smallest path cost. It does so by finding the minimum cost path and switching to that path only if it is shorter (in terms of path cost) than the current path by at least a given threshold \cite{MRHOF}. 
+The Minimum Rank Objective Function with Hysteresis (MRHOF)\@, is designed to find the paths with the smallest path cost. It does so by finding the minimum cost path and switching to that path only if it is shorter (in terms of path cost) than the current path by at least a given threshold~\cite{MRHOF}. 
 
-The path cost in MRHOF is defined as the quantitated property of an end-to-end path, and is obtained by summing up the selected metric of the links or nodes along the path. If a DIO doesn't advertise a metric container, MRHOF uses the expected transmission count metric (ETX) as its metric. The ETX metric allows RPL to find the stable minimum-ETX paths from the nodes to a root in the DODAG instance \cite{MRHOF}. The rank of a node in MRHOF is directly associated with the path cost of the worst parent in the parent set.
+The path cost in MRHOF is defined as the quantitated property of an end-to-end path, and is obtained by summing up the selected metric of the links or nodes along the path. If a DIO doesn't advertise a metric container, MRHOF uses the expected transmission count metric (ETX) as its metric. The ETX metric allows RPL to find the stable minimum-ETX paths from the nodes to a root in the DODAG instance~\cite{MRHOF}. The rank of a node in MRHOF is directly associated with the path cost of the worst parent in the parent set.
 
 \section{RPL Control Message Timer - the Trickle Timer}
 \label{Trickle}
@@ -201,7 +201,7 @@ The Trickle algorithm defines a Trickle interval with a minimum time interval si
  \item $c$, a counter
 \end{itemize}
 
-The Trickle algorithm works in the following way \cite{RFC 6206}:
+The Trickle algorithm works in the following way~\cite{RFC 6206}:
 \begin{itemize}
 \item For sending:
   \begin{itemize}

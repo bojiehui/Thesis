@@ -22,6 +22,7 @@ In Figure~\ref{fig:dist10_montecarlo_cdf_hist}, the inter-node distance is only 
   \end{center}
 \end{figure}
 
+
 In the case of Figure~\ref{fig:dist50_montecarlo_cdf_hist}, the distance between the root node and node 4 (the furthest node from the root) is 150 m which corresponds to a 39\% PRR. Therefore node 4 may be two hops away from the root. It is shown in Figure~\ref{fig:dist50_montecarlo_cdf_hist}, the linearity only goes up to around 70\%, and the CDF curve after that corresponds to the addition of two uniformly distributed random variables.
 
 \begin{figure}[htbp]
@@ -37,9 +38,6 @@ In the case of Figure~\ref{fig:dist50_montecarlo_cdf_hist}, the distance between
 
 The effect can be more precisely observed in Figure~\ref{fig:dist100_montecarlo_cdf_hist} where node 2 is one hop away from the root, node 3 is two hops away and node 4 is three hops away. The corresponding range of default route detection time for node 2, 3 and 4 are $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$ respectively. Accordingly Figure~\ref{fig:dist100_montecarlo_cdf_hist} shows 3 phases in the CDF curve. The first phase (Time-axis from 128 ms to 256 ms) is linear. It demonstrates the CDF of the uniformly distributed default route detection time for node 2. The second phase starts from 128 ms to 384 ms. The CDF of this phase corresponds to a triangle PDF which is the convolution of two uniform distributions PDFs. From 384 ms to 768 ms, a third uniform distribution is added. The CDF of this phase corresponds to an approximately bell shaped PDF.
 
-% mab: $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$
-% those values are not right! check them again!
-
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
@@ -51,29 +49,28 @@ The effect can be more precisely observed in Figure~\ref{fig:dist100_montecarlo_
    \vspace{-20pt}
 \end{figure}
 
-
-The 95th percentiles of default route detection time for line scenario and grid scenario are shown in Table \ref{table:95}. More CDF histograms of default route detection time for other scenario setups can be found in Appendix \ref{Appx:cdf}.
+The 95th percentiles of default route detection time for line scenario and grid scenario with different node numbers and inter-node distances are shown in Table~\ref{table:95}. A 95th percentile is the value which 95\% of the observation results fall below. In this case it represents in 95\% of the simulation runs the lowest ranked node (largest hop distance from the root) is able to find the default routes within the 95th percentile. From the table, one can clearly see that the default route discovery time increases with the increase of distance and number of nodes. Additionally, all the 95th percentiles fall below $n*256\:ms$, where $n$ is the hop distance between the root and the node and 256~ms is the upperlimit of the initial time interval specified by Trickle timer $Imax$.
 
 \begin{table}
-\caption{The 95th percentile of default route detection time}
+\caption{The 95th percentile of default route discovery time}
 \centering
     \begin{tabular}{ cc| c | c | c |} \cline{3-5}
-     & & \multicolumn{3}{|c|}{Inter-Node Distance/m }\\ \cline{1-5}
+     & & \multicolumn{3}{|c|}{inter-node Distance/m }\\ \cline{1-5}
      \multicolumn{1}{|c|}{Scenario} & No. of Nodes  & 10      & 50      & 100     \\  \hline
      \multicolumn{1}{|c|}{\multirow{3}{*}{Line}} &
     % \multicolumn{1}{|c|}{}      & 10      & 50      & 100     \\  \cline{2-5}
-     \multicolumn{1}{|c|}{4}  & 250 ms  & 448 ms  & 650 ms  \\  \cline{2-5}
-     \multicolumn{1}{|c|}{} & 9  & 256 ms  & 784 ms  & 1598 ms \\  \cline{2-5}
-     \multicolumn{1}{|c|}{} & 16 & 320 ms  & 1363 ms & 2880 ms \\  \cline{1-5}
-     \multicolumn{1}{|c|}{\multirow{4}{*}{Grid}} &
-     \multicolumn{1}{|c|}{4}  & 256 ms  & 256 ms  & 380 ms  \\  \cline{2-5}
-     \multicolumn{1}{|c|}{} & 9  & 250 ms  & 260 ms  & 576 ms  \\  \cline{2-5}
-     \multicolumn{1}{|c|}{} & 16 & 250 ms  & 416 ms  & 736 ms  \\  \cline{1-5}
+     \multicolumn{1}{|c|}{4}  & 250~ms  & 448~ms  & 650~ms  \\  \cline{2-5}
+     \multicolumn{1}{|c|}{} & 9  & 256~ms  & 784~ms  & 1598~ms \\  \cline{2-5}
+     \multicolumn{1}{|c|}{} & 16 & 320~ms  & 1363~ms & 2880~ms \\  \cline{1-5}
+     \multicolumn{1}{|c|}{\multirow{3}{*}{Grid}} &
+     \multicolumn{1}{|c|}{4}  & 256~ms  & 256~ms  & 380~ms  \\  \cline{2-5}
+     \multicolumn{1}{|c|}{} & 9  & 250~ms  & 260~ms  & 576~ms  \\  \cline{2-5}
+     \multicolumn{1}{|c|}{} & 16 & 250~ms  & 416~ms  & 736~ms  \\  \cline{1-5}  
     \end{tabular}
   \label{table:95}
 \end{table}
 
-% mab: Discussion of the table is missing!
+The CDF histograms of default route discovery time for 9- and 16-node scenario setups can be found in Appendix~\ref{Appx:cdf}. 
 
 \section{Control Message Overhead}
 \label{ICMP}
@@ -122,7 +119,7 @@ In Figure~\ref{fig:9_MRHOF_line_10_icmp0}, the control message overhead is equal
    \vspace{-20pt}
 \end{figure}
 
-As mentioned in Section \ref{RPL:ICMP}, DAO is the control message which is used to discover and maintain the downward  route. DAO is sent upwards by a node and forwarded by the DAO parents until the message reaches the DODAG root. Therefore the nodes with lower rank have to forward DAOs which are originated from the higher rank nodes. Figure~\ref{fig:9_MRHOF_line_50_icmp0} and Figure~\ref{fig:9_MRHOF_line_100_icmp0} accurately demonstrate this behavior - the amount of control messages is high for node 3 and the number decreases along the downward route. During the second time interval, although the control message overhead is smaller compared to the first time interval, the same behavior can still be observed (Figure~\ref{fig:9_MRHOF_line_50_icmp1} and Figure~\ref{fig:9_MRHOF_line_100_icmp1}).
+As mentioned in Section~\ref{RPL:ICMP}, DAO is the control message which is used to discover and maintain the downward  route. DAO is sent upwards by a node and forwarded by the DAO parents until the message reaches the DODAG root. Therefore the nodes with lower rank have to forward DAOs which are originated from the higher rank nodes. Figure~\ref{fig:9_MRHOF_line_50_icmp0} and Figure~\ref{fig:9_MRHOF_line_100_icmp0} accurately demonstrate this behavior - the amount of control messages is high for node 3 and the number decreases along the downward route. During the second time interval, although the control message overhead is smaller compared to the first time interval, the same behavior can still be observed (Figure~\ref{fig:9_MRHOF_line_50_icmp1} and Figure~\ref{fig:9_MRHOF_line_100_icmp1}).
 
 The control message behaviors of the 16-node line scenario and the grid scenarios are consistent with the results shown. The figures can be found in Appendix \ref{Appx:icmp}
 
@@ -153,7 +150,6 @@ For the 4-node and 9-node line scenarios, the packet loss under the same setup s
 
 \begin{figure}[p]
   \centering
-    \vspace{-20pt}
     \leavevmode
     \subfloat[OF0]{\label{fig:4/OF0/line/dist50_montecarlo_contour_packetloss}
     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/4/OF0/line/dist50_montecarlo_contour_packetloss.pdf}}

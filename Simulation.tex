@@ -12,7 +12,7 @@ includes discussion about the simulator, simulation execution, scenario setups a
 
 The simulator used in this project is called TOSSIM\@. TOSSIM is a discrete, event-driven WSN simulator included in TinyOS. Compiling unchanged TinyOS applications
 directly into its framework, TOSSIM can simulate thousands of motes running complete
-applications \cite{LLWC}. It fulfils the requirements of being a TinyOS simulator; such requirements include: scalability, completeness and fidelity. TOSSIM is a shared library, therefore a script written with C++ or Python must be created to run the simulation.  Python is chosen in this thesis as it can dynamically interact with the simulation.
+applications~\cite{LLWC}. It fulfils the requirements of being a TinyOS simulator; such requirements include: scalability, completeness and fidelity. TOSSIM is a shared library, therefore a script written with C++ or Python must be created to run the simulation.  Python is chosen in this thesis as it can dynamically interact with the simulation.
 
 Configuring networks for TOSSIM simulation usually includes setting
 up a network topology and an interference model. For the topology, a file with the format~\texttt{Source Destination Gain} needs to be created. TOSSIM uses the Closest Pattern Matching (CPM) algorithm to calculate channel noise. It is a wireless noise simulation model
@@ -23,11 +23,11 @@ based on statistical extraction from empirical noise data. It works by taking a 
 
 The simulation had already been enabled for a multi-hop network using the BLIP 1.0 implementation before. The radio stack for this simulation was the CC2420. But due to the significant changes that were done to both the CC2420 radio stack and BLIP, considerable work was required to re-enable the simulation of BLIP 2.0. 
 
-As mentioned in Section \ref{Sim:radio stack}, the rfxlink radio stack unifies CC2420 and RF230. Furthermore, the TOSSIM simulation support for rfxlink has been developed by Morten Tranberg Hansen \cite{rfxsim}. But neither BLIP 1.0 nor BLIP 2.0 have been implemented on top of rfxlink. In oder to execute the simulation, the simulated rfxlink had to be moved underneath BLIP 2.0. 
+As mentioned in Section~\ref{Sim:radio stack}, the rfxlink radio stack unifies CC2420 and RF230. Furthermore, the TOSSIM simulation support for rfxlink has been developed by Morten Tranberg Hansen~\cite{rfxsim}. But neither BLIP 1.0 nor BLIP 2.0 have been implemented on top of rfxlink. In oder to execute the simulation, the simulated rfxlink had to be moved underneath BLIP 2.0. 
 
 The re-enabling of the simulation required the following steps: 
 \begin{itemize}
-\item Merging of the branch of Morten Tranberg Hansen's rfxsim repository \cite{rfxsim}. 
+\item Merging of the branch of Morten Tranberg Hansen's rfxsim repository~\cite{rfxsim}. 
 
 \item Adding the simulated ``chip driver'' layer - TossimDriverLayerC to the already supported CC2420 and RF230 radio chips of rfxlink. 
 
@@ -51,7 +51,7 @@ The simulation is done for various scenarios with different number of nodes, as 
 \subsection{Simulation Scenarios}
 \label{Sim:Scenarios}
 
-Two kinds of scenarios are created for the simulation - a line scenario and a grid scenario. In the line scenario the neighboring nodes are equally distanced; in the grid scenario, the number of nodes should be a square number, and the grids are square grids. Figure \ref{fig:scenario_line} shows a 4-node line scenario with 10-meter internode distance. A 9-node grid scenario with 100-meter internode distance is shown in Figure \ref{fig:scenario_grid}. Node 1 is configured to be the root node in the simulation.
+Two kinds of scenarios are created for the simulation - a line scenario and a grid scenario. In the line scenario the neighboring nodes are equally distanced; in the grid scenario, the number of nodes should be a square number, and the grids are square grids. Figure~\ref{fig:scenario_line} shows a 4-node line scenario with 10-meter internode distance. A 9-node grid scenario with 100-meter internode distance is shown in Figure~\ref{fig:scenario_grid}. Node 1 is configured to be the root node in the simulation.
 
 \begin{figure}[htpb]
  % \begin{center}
@@ -74,7 +74,7 @@ Two kinds of scenarios are created for the simulation - a line scenario and a gr
 %  \end{center}
 \end{figure}
 
-The Packet Reception Ratio (PRR) is estimated from Signal-to-Noise Ratio (SNR). The estimation is based on the measurement in \cite{RL08}:
+The Packet Reception Ratio (PRR) is estimated from Signal-to-Noise Ratio (SNR). The estimation is based on the measurement in~\cite{RL08}:
 \[
 PRR = (1-0.5*erfc(\frac{\beta_1*(SNR-\beta_2)}{\sqrt{2}}))^{46}
 \quad{\beta_1} = 0.9794, {\beta_2} = 2.3851
@@ -83,7 +83,7 @@ with
 \[
 SNR = Signal\:(dBm)- Noise\:(dBm) = -(50 + 20 {\log}(Distance)) - (-98)\:(dBm)
 \] 
-The relationship between distance and PRR is shown in Figure \ref{fig:prr}. When the distance between two nodes is smaller than 120 m, they can hear each other with a PRR value larger than 0.99. Once the distance is larger than 120 m, the PRR begins to decline until it reaches a value of zero at a distance of 165 m. This means that at a distance of over 165 m two nodes are at least two hops apart.
+The relationship between distance and PRR is shown in Figure~\ref{fig:prr}. When the distance between two nodes is smaller than 120 m, they can hear each other with a PRR value larger than 0.99. Once the distance is larger than 120 m, the PRR begins to decline until it reaches a value of zero at a distance of 165 m. This means that at a distance of over 165 m two nodes are at least two hops apart.
 
 \begin{figure}[htbp]
   \begin{center}
