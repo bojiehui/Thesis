@@ -3,6 +3,18 @@
 
 \begin{abstract}
 
+The Berkeley Low-power IP stack (BLIP), an implementation of IPv6 over Low Power Personal Area Network (6LoWPAN) adaptation layer and Internet Protocol (IP) layer, has been upgraded to version 2.0 (BLIP~2.0). In BLIP 2.0, the IPv6 Routing Protocol for Low power and Lossy Networks (RPL) is implemented to replace the Hybrid Routing Protocol for Lossy and Low Power Networks (HYDRO). RPL seperates the packet processing from objective optimization by using a set of Objective Function (OF) outside of the routing protocol. It makes RPL flexible to apply to a wider range of Low power and Lossy Networks (LLNs). Two OFs have been implemented in BLIP~2.0 - Objective Function Zero (OF0) and the Minimum Rank Objective Function with Hysteresis (MRHOF).
+
+In this thesis, the TOSSIM simulation of BLIP~2.0 is enabled for the future 6LoWPAN radio stack rfxlink, and the application~\texttt{UDPEcho} is used in the simulation to evaluate the performance of RPL in various sceanrios with different numbers of nodes and inter-node distances as well as with objective functions OF0 and MRHOF. The Trickle algorithm which is used in RPL to regulate the transmission of control messages is examed and the effect of Trikle timer is presented. The metrics that are used in this thesis to evaluate the RPL performance are:
+\begin{itemize}
+\item Default route discovery time;
+
+\item Control message overhead;
+
+\item Packet loss;
+
+\item Round-Trip Time (RTT).
+\end{itemize}
 
 \end{abstract}
 
