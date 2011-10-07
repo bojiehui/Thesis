@@ -17,7 +17,7 @@ In Figure~\ref{fig:dist10_montecarlo_cdf_hist}, the inter-node distance is only 
     \leavevmode
       \includegraphics[scale=0.38]
       {Pics/results/4/MRHOF/line/dist10_montecarlo_cdf_hist.pdf}
-   \caption{CDF of default route discovery time: 4 nodes line scenario with 10~m inter-node distance}
+   \caption{CDF of default route discovery time: 4-node line scenario with 10~m inter-node distance}
     \label{fig:dist10_montecarlo_cdf_hist}
   \end{center}
 \end{figure}
@@ -30,13 +30,13 @@ In the case of Figure~\ref{fig:dist50_montecarlo_cdf_hist}, the distance between
     \leavevmode
       \includegraphics[scale=0.38]
       {Pics/results/4/MRHOF/line/dist50_montecarlo_cdf_hist.pdf}
-   \caption{CDF of default route discovery time: 4 nodes line scenario with 50~m inter-node distance}
+   \caption{CDF of default route discovery time: 4-node line scenario with 50~m inter-node distance}
     \label{fig:dist50_montecarlo_cdf_hist}
   \end{center}
    \vspace{-20pt}
 \end{figure}
 
-The effect can be more precisely observed in Figure~\ref{fig:dist100_montecarlo_cdf_hist} where node 2 is one hop away from the root, node 3 is two hops away and node 4 is three hops away. The corresponding range of default route detection time for node 2, 3 and 4 are $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$ respectively. Accordingly Figure~\ref{fig:dist100_montecarlo_cdf_hist} shows 3 phases in the CDF curve. The first phase (Time-axis from 128~ms to 256~ms) is linear. It demonstrates the CDF of the uniformly distributed default route detection time for node 2. The second phase starts from 128~ms to 384~ms. The CDF of this phase corresponds to a triangle PDF which is the convolution of two uniform distributions PDFs. From 384~ms to 768~ms, a third uniform distribution is added. The CDF of this phase corresponds to an approximately bell shaped PDF.
+The effect can be more precisely observed in Figure~\ref{fig:dist100_montecarlo_cdf_hist} where node 2 is one hop away from the root, node 3 is two hops away and node 4 is three hops away. The corresponding range of default route discovery time for node 2, 3 and 4 are $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$ respectively. Accordingly Figure~\ref{fig:dist100_montecarlo_cdf_hist} shows 3 phases in the CDF curve. The first phase (Time-axis from 128~ms to 256~ms) is linear. It demonstrates the CDF of the uniformly distributed default route discovery time for node 2. The second phase starts from 128~ms to 384~ms. The CDF of this phase corresponds to a triangle PDF which is the convolution of two uniform distributions PDFs. From 384~ms to 768~ms, a third uniform distribution is added. The CDF of this phase corresponds to an approximately bell shaped PDF.
 
 % mab: $[128, 256)\:ms$, $[256, 512)\:ms$ and $[384, 768)\:ms$
 % those values are not right! check them again!
@@ -46,13 +46,13 @@ The effect can be more precisely observed in Figure~\ref{fig:dist100_montecarlo_
     \leavevmode
       \includegraphics[scale=0.38]
       {Pics/results/4/MRHOF/line/dist100_montecarlo_cdf_hist.pdf}
-   \caption{CDF of default route discovery time: 4 nodes line scenario with 100~m inter-node distance}
+   \caption{CDF of default route discovery time: 4-node line scenario with 100~m inter-node distance}
     \label{fig:dist100_montecarlo_cdf_hist}
   \end{center}
    \vspace{-20pt}
 \end{figure}
 
-The 95th percentiles of default route detection time for line scenario and grid scenario with different node numbers and inter-node distances are shown in Table~\ref{table:95}. A 95th percentile is the value which 95\% of the observation results fall below. In this case it represents in 95\% of the simulation runs the lowest ranked node (largest hop distance from the root) is able to find the default routes within the 95th percentile. From the table, one can clearly see that the default route discovery time increases with the increase of distance and number of nodes. Additionally, all the 95th percentiles fall below $n*256\:ms$, where $n$ is the hop distance between the root and the node and 256~ms is the upperlimit of the initial time interval specified by Trickle timer $Imax$.
+The 95th percentiles of default route discovery time for line scenario and grid scenario with different node numbers and inter-node distances are shown in Table~\ref{table:95}. A 95th percentile is the value which 95\% of the observation results fall below. In this case it represents in 95\% of the simulation runs the lowest ranked node (largest hop distance from the root) is able to find the default routes within the 95th percentile. From the table, one can clearly see that the default route discovery time increases with the increase of distance and number of nodes. Additionally, all the 95th percentiles fall below $n*256\:ms$, where $n$ is the hop distance between the root and the node and 256~ms is the upperlimit of the initial time interval specified by Trickle timer $Imax$.
 
 \begin{table}
 \caption{The 95th percentile of default route discovery time}
@@ -262,118 +262,130 @@ The packet loss rate comparison between MRHOF and OF0 shows that with OF0 a node
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% grid 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[p]
   \centering
+   \vspace{-20pt}
     \leavevmode
     \subfloat[OF0]{\label{fig:4/OF0/grid/dist10_montecarlo_contour_packetloss}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/grid/dist10_montecarlo_contour_packetloss.pdf}}
+      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/4/OF0/grid/dist10_montecarlo_contour_packetloss.pdf}}
+      \hspace{15pt}
     \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist10_montecarlo_contour_packetloss}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist10_montecarlo_contour_packetloss.pdf}}
+      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/4/MRHOF/grid/dist10_montecarlo_contour_packetloss.pdf}}
    \caption{Mean packet loss rate: 4-node grid scenario with 10~m inter-node distance}
    \label{fig:pl_4_grid_10}
-    \vspace{-20pt}
+    \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:4/OF0/grid/dist50_montecarlo_contour_packetloss}
-    \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/4/OF0/grid/dist50_montecarlo_contour_packetloss.pdf}}
+    \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]   {Pics/results/4/OF0/grid/dist50_montecarlo_contour_packetloss.pdf}}
+    \hspace{15pt}
     \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist50_montecarlo_contour_packetloss}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist50_montecarlo_contour_packetloss.pdf}}
+      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/4/MRHOF/grid/dist50_montecarlo_contour_packetloss.pdf}}
    \caption{Mean packet loss rate: 4-node grid scenario with 50~m inter-node distance}
    \label{fig:pl_4_grid_50}
-    \vspace{-20pt}
+    \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:4/OF0/grid/dist100_montecarlo_contour_packetloss}
-     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/grid/dist100_montecarlo_contour_packetloss.pdf}}
+     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/4/OF0/grid/dist100_montecarlo_contour_packetloss.pdf}}
+     \hspace{15pt}
     \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist100_montecarlo_contour_packetloss}
-     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist100_montecarlo_contour_packetloss.pdf}}
+     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/4/MRHOF/grid/dist100_montecarlo_contour_packetloss.pdf}}
   \caption{Mean packet loss rate: 4-node grid scenario with 100~m inter-node distance}
   \label{fig:pl_4_grid_100}
-   \vspace{-20pt}
+   \vspace{-25pt}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% grid 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[p]
   \centering
+   \vspace{-20pt}
     \leavevmode
     \subfloat[OF0]{\label{fig:9/OF0/grid/dist10_montecarlo_contour_packetloss}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/grid/dist10_montecarlo_contour_packetloss.pdf}}
+      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/9/OF0/grid/dist10_montecarlo_contour_packetloss.pdf}}
+      \hspace{15pt}
     \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist10_montecarlo_contour_packetloss}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist10_montecarlo_contour_packetloss.pdf}}
+      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/9/MRHOF/grid/dist10_montecarlo_contour_packetloss.pdf}}
    \caption{Mean packet loss rate: 9-node grid scenario with 10~m inter-node distance}
    \label{fig:pl_9_grid_10}
-    \vspace{-20pt}
+    \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:9/OF0/grid/dist50_montecarlo_contour_packetloss}
-    \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/9/OF0/grid/dist50_montecarlo_contour_packetloss.pdf}}
+    \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]   {Pics/results/9/OF0/grid/dist50_montecarlo_contour_packetloss.pdf}}
+    \hspace{15pt}
     \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist50_montecarlo_contour_packetloss}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist50_montecarlo_contour_packetloss.pdf}}
+      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/9/MRHOF/grid/dist50_montecarlo_contour_packetloss.pdf}}
    \caption{Mean packet loss rate: 9-node grid scenario with 50~m inter-node distance}
    \label{fig:pl_9_grid_50}
-    \vspace{-20pt}
+    \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:9/OF0/grid/dist100_montecarlo_contour_packetloss}
-     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/grid/dist100_montecarlo_contour_packetloss.pdf}}
+     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/9/OF0/grid/dist100_montecarlo_contour_packetloss.pdf}}
+     \hspace{15pt}
     \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist100_montecarlo_contour_packetloss}
-     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist100_montecarlo_contour_packetloss.pdf}}
+     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/9/MRHOF/grid/dist100_montecarlo_contour_packetloss.pdf}}
   \caption{Mean packet loss rate: 9-node grid scenario with 100~m inter-node distance}
   \label{fig:pl_9_grid_100}
-   \vspace{-20pt}
+   \vspace{-25pt}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% grid 16 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[p]
   \centering
+   \vspace{-20pt}
     \leavevmode
     \subfloat[OF0]{\label{fig:16/OF0/grid/dist10_montecarlo_contour_packetloss}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist10_montecarlo_contour_packetloss.pdf}}
+      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/OF0/grid/dist10_montecarlo_contour_packetloss.pdf}}
+      \hspace{15pt}
     \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist10_montecarlo_contour_packetloss}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist10_montecarlo_contour_packetloss.pdf}}
+      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/MRHOF/grid/dist10_montecarlo_contour_packetloss.pdf}}
    \caption{Mean packet loss rate: 16-node grid scenario with 10~m inter-node distance}
    \label{fig:pl_16_grid_10}
-    \vspace{-20pt}
+    \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:16/OF0/grid/dist50_montecarlo_contour_packetloss}
-    \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]   {Pics/results/16/OF0/grid/dist50_montecarlo_contour_packetloss.pdf}}
+    \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]   {Pics/results/16/OF0/grid/dist50_montecarlo_contour_packetloss.pdf}}
+    \hspace{15pt}
     \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist50_montecarlo_contour_packetloss}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist50_montecarlo_contour_packetloss.pdf}}
+      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/MRHOF/grid/dist50_montecarlo_contour_packetloss.pdf}}
    \caption{Mean packet loss rate: 16-node grid scenario with 50~m inter-node distance}
    \label{fig:pl_16_grid_50}
-    \vspace{-20pt}
+    \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:16/OF0/grid/dist100_montecarlo_contour_packetloss}
-     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist100_montecarlo_contour_packetloss.pdf}}
+     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/OF0/grid/dist100_montecarlo_contour_packetloss.pdf}}
+     \hspace{15pt}
     \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist100_montecarlo_contour_packetloss}
-     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist100_montecarlo_contour_packetloss.pdf}}
+     \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/MRHOF/grid/dist100_montecarlo_contour_packetloss.pdf}}
   \caption{Mean packet loss rate: 16-node grid scenario with 100~m inter-node distance}
   \label{fig:pl_16_grid_100}
-   \vspace{6in}
+   \vspace{-25pt}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RTT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-\section{Route Trip Time}
+\section{Round-Trip Time}
 \label{rtt}
 
 \subsection{Line Scenario}
@@ -502,111 +514,130 @@ By comparing the mean RTT results of OF0 and MRHOF, one can say that in terms of
 %\clearpage
 \begin{figure}[p]
   \centering
-  \vspace{-10pt}
+  \vspace{-20pt}
     \leavevmode
     \subfloat[OF0]{\label{fig:4/OF0/grid/dist10_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/grid/dist10_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/4/OF0/grid/dist10_montecarlo_contour.pdf}} 
+      \hspace{15pt}
      \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist10_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist10_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/4/MRHOF/grid/dist10_montecarlo_contour.pdf}}
   \caption{Mean RTT: 4-node grid scenario with 10~m inter-node distance}
  \label{fig:rtt_4_grid_10}
+ \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:4/OF0/grid/dist50_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/OF0/grid/dist50_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/4/OF0/grid/dist50_montecarlo_contour.pdf}} 
+      \hspace{15pt}
      \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist50_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/4/MRHOF/grid/dist50_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/4/MRHOF/grid/dist50_montecarlo_contour.pdf}}
   \caption{Mean RTT: 4-node grid scenario with 50~m inter-node distance}
  \label{fig:rtt_4_grid_50}
+ \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:4/OF0/grid/dist100_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]
-      {Pics/results/4/OF0/grid/dist100_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]
+      {Pics/results/4/OF0/grid/dist100_montecarlo_contour.pdf}} 
+      \hspace{15pt}
      \subfloat[MRHOF]{\label{fig:4/MRHOF/grid/dist100_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]
       {Pics/results/4/MRHOF/grid/dist100_montecarlo_contour.pdf}}
   \caption{Mean RTT: 4-node grid scenario with 100~m inter-node distance}
  \label{fig:rtt_4_grid_100}
+ \vspace{-25pt}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% grid 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[p]
   \centering
+   \vspace{-20pt}
     \leavevmode
     \subfloat[OF0]{\label{fig:9/OF0/grid/dist10_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]
-      {Pics/results/9/OF0/grid/dist10_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]
+      {Pics/results/9/OF0/grid/dist10_montecarlo_contour.pdf}} 
+      \hspace{15pt}
      \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist10_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]
       {Pics/results/9/MRHOF/grid/dist10_montecarlo_contour.pdf}}
   \caption{Mean RTT: 9-node grid scenario with 10~m inter-node distance}
  \label{fig:rtt_9_grid_10}
+ \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:9/OF0/grid/dist50_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/grid/dist50_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/9/OF0/grid/dist50_montecarlo_contour.pdf}} 
+      \hspace{15pt}
      \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist50_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist50_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/9/MRHOF/grid/dist50_montecarlo_contour.pdf}}
   \caption{Mean RTT: 9-node grid scenario with 50~m inter-node distance}
  \label{fig:rtt_9_grid_50}
+ \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:9/OF0/grid/dist100_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/OF0/grid/dist100_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/9/OF0/grid/dist100_montecarlo_contour.pdf}} 
+      \hspace{15pt}
      \subfloat[MRHOF]{\label{fig:9/MRHOF/grid/dist100_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/9/MRHOF/grid/dist100_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/9/MRHOF/grid/dist100_montecarlo_contour.pdf}}
   \caption{Mean RTT: 9-node grid scenario with 100~m inter-node distance}
  \label{fig:rtt__grid_100}
+ \vspace{-25pt}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% grid 16 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[p]
   \centering
+  \vspace{-20pt}
     \leavevmode
     \subfloat[OF0]{\label{fig:16/OF0/grid/dist10_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist10_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/OF0/grid/dist10_montecarlo_contour.pdf}} 
+      \hspace{15pt}
      \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist10_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist10_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/MRHOF/grid/dist10_montecarlo_contour.pdf}}
   \caption{Mean RTT: 16-node grid scenario with 10~m inter-node distance}
  \label{fig:rtt_16_grid_10}
+ \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:16/OF0/grid/dist50_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist50_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/OF0/grid/dist50_montecarlo_contour.pdf}} 
+      \hspace{15pt}
      \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist50_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist50_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/MRHOF/grid/dist50_montecarlo_contour.pdf}}
   \caption{Mean RTT: 16-node grid scenario with 50~m inter-node distance}
  \label{fig:rtt_16_grid_50}
+ \vspace{-25pt}
 \end{figure}
 
 \begin{figure}[p]
   \centering
     \leavevmode
     \subfloat[OF0]{\label{fig:16/OF0/grid/dist100_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/OF0/grid/dist100_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/OF0/grid/dist100_montecarlo_contour.pdf}} 
+      \hspace{15pt}
      \subfloat[MRHOF]{\label{fig:16/MRHOF/grid/dist100_montecarlo_contour}
-      \includegraphics[trim=1.7cm 0cm 3cm 0cm, clip=true, scale=0.38]{Pics/results/16/MRHOF/grid/dist100_montecarlo_contour.pdf}}
+      \includegraphics[trim=1cm 0cm 3cm 0cm, clip=true, scale=0.3]{Pics/results/16/MRHOF/grid/dist100_montecarlo_contour.pdf}}
   \caption{Mean RTT: 16-node grid scenario with 100~m inter-node distance}
  \label{fig:rtt_16_grid_100}
-  \vspace{6in}
+ \vspace{-25pt}
 \end{figure}
 
 

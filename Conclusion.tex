@@ -9,9 +9,9 @@ Low power consumption and low control message overhead are crucial due to the re
 
 As soon as the nodes boot up, DIOs are sent to help nodes discovering the default routes. The sending of DIO messages is governed by the Trickle timer. Due to the Trickle algorithm, the default route discovery times of the single hop nodes are uniform distributed. For a multi-hop node, the distribution of the default route discovery time is the summation of multiple uniform distributions, thus resulting an normal distribution. By adding the default route discovery time distributions of all the nodes in a network, one can get a CDF of the whole network which shows almost a uniform increase again.
 
-% mab: the above summary is not right. only one hop nodes' detection time
+% mab: the above summary is not right. only one hop nodes' discovery time
 % is uniformly distributed. nodes further away have almost normally
-% distributed detection times. the full network cdf for bigger
+% distributed discovery times. the full network cdf for bigger
 % scenarios, shows almost a uniform increase again, due to the
 % summation of all the other distriburions.
 

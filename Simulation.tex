@@ -46,7 +46,7 @@ The re-enabling of the simulation required the following steps:
 \label{Sim:Method}
 The application~\texttt{UDPEcho} is used in the simulation to evaluate the performance of the RPL protocol. It is configured to behave similarly to the application~\texttt{Ping}. A node sends out a data packet to another node, which replies back to the original sender. However, this is done on the application layer. The application is installed on the simulated root node and the child nodes. In the simulation, the root node will send 100 \texttt{UDPEcho} packets one after another to a child node, then continue to send another 100 \texttt{UDPEcho} packets to the next child node, until all child nodes are  ``pinged''.     
 
-The simulation is done for various scenarios with different number of nodes, as well as with objective functions OF0 and MRHOF. The results of the simulation is visualized with the python plotting library \texttt{Matplotlib}.
+The simulation is done for various scenarios with different number of nodes, as well as with objective functions OF0 and MRHOF. The results of the simulation is visualized with the python plotting library~\texttt{Matplotlib}.
 
 \subsection{Simulation Scenarios}
 \label{Sim:Scenarios}
@@ -98,30 +98,30 @@ The relationship between distance and PRR is shown in Figure~\ref{fig:prr}. When
 \label{trickle parameters}
 The Trickle timer parameters and initial variables of RPL in the simulation are set as below:
 \begin{itemize}
-\item Minimum time interval size $Imin = 256\:ms$
+\item Minimum time interval size $Imin = 256\:ms$;
 
-\item Maximum time interval size $Imax = 262144\:ms = 256\:s$
+\item Maximum time interval size $Imax = 262144\:ms = 256\:s$;
 
-\item Redundancy constant $k = 255$
+\item Redundancy constant $k = 255$;
 
-\item Initial current interval size $I = 256\:ms$
+\item Initial current interval size $I = 256\:ms$;
 
-\item Initial timer value t randomly chosen in range of $[128, 256)\:ms$
+\item Initial timer value t randomly chosen in range of $[128, 256)\:ms$;
 
-\item Initial counter $c=0$
+\item Initial counter $c=0$.
 \end{itemize}
 
 \subsection{Simulation Metrics}
 \label{Sim:metrics}
 The metrics that are used to evaluate the RPL performance are:
 \begin{itemize}
-\item Cumulative distribution function (CDF) of time to default route detection: when a node receives the first DIO message from a lower rank node, it sets the default route entry. The sending of the DIO is controlled by a Trickle timer. The CDF of the default route discovery time will demonstrate the characteristics of the Trickle algorithm.
+\item Cumulative distribution function (CDF) of time to default route discovery: when a node receives the first DIO message from a lower rank node, it sets the default route entry. The sending of the DIO is controlled by a Trickle timer. The CDF of the default route discovery time will demonstrate the characteristics of the Trickle algorithm.
 
 \item Mean control message overhead over 100 runs: In order to show the effect of the Trickle timer, the amount of ICMP messages a node sends out during time intervals will be shown.
 
 \item Mean packet loss over 100 runs: Packet loss rate shows the quality of the links between nodes. A good multi-hop routing protocol should be able to forward packet properly to the destination under the certain link condition. The mean packet loss rate of both OF0 and MRHOF will be compared.
 
-\item Mean Route Trip Time (RTT) over 100 runs: The mean RTT for various scenarios and both OF0 and MRHOF with link ETX (hereinafter referred to as MRHOF) will be evaluated.
+\item Mean Round-Trip Time (RTT) over 100 runs: The mean RTT for various scenarios and both OF0 and MRHOF with link ETX (hereinafter referred to as MRHOF) will be evaluated.
 
 \end{itemize}
 
